@@ -1,0 +1,92 @@
+﻿@model SmartAdminMvc.Models.DbEntity.USP_Users_Get_Result
+<div id="content">
+    <!-- row -->
+    <div class="row">
+        <!-- col -->
+        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+            <h1 class="page-title txt-color-blueDark">
+                <!-- PAGE HEADER --><i class="fa-fw fa fa-home"></i> User Registration <span>
+                    &gt;
+                    <a style="color:#3276b1;text-decoration:underline" href="@Url.Action("registrationlist", "UserAccount")">Users</a> &gt;Edit User
+                </span>
+            </h1>
+        </div>
+        <!-- end col -->
+    </div>
+    <div id="content1" class="col-lg-6 col-sm-6">
+
+
+        <h1>Edit User</h1>
+
+
+        <div class="box-content">
+            <form role="form" action="add_User" method="POST">
+                @Html.HiddenFor(model => model.UserID)
+                @Html.HiddenFor(model => model.Password)
+                @Html.HiddenFor(model => model.UserTypeID)
+                @Html.HiddenFor(model => model.ReferenceID)
+                @Html.HiddenFor(model => model.SecurityLevelID)
+                @Html.HiddenFor(model => model.TitleOfCourtesy)
+                @Html.HiddenFor(model => model.TitleOfCourtesy)
+                @Html.HiddenFor(model => model.BirthDate)
+                @Html.HiddenFor(model => model.HireDate)
+                @Html.HiddenFor(model => model.Address)
+                @Html.HiddenFor(model => model.PostalCode)
+                @Html.HiddenFor(model => model.Country)
+                @Html.HiddenFor(model => model.HomePhone)
+                @Html.HiddenFor(model => model.Extension)
+                @Html.HiddenFor(model => model.Notes)
+                @Html.HiddenFor(model => model.ReportsTo)
+
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Login Name:</label>
+                    @Html.TextBoxFor(model => model.LoginName, new { @class = "form-control", @placeholder = "Login Name" })
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Last Name:</label>
+                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @placeholder = "Last Name" })
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">First Name:</label>
+                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @placeholder = "First Name" })
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Title:</label>
+                    @Html.TextBoxFor(model => model.Title, new { @class = "form-control", @placeholder = "Title" })
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">City:</label>
+                    @Html.TextBoxFor(model => model.City, new { @class = "form-control", @placeholder = "City" })
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Region:</label>
+                    @Html.TextBoxFor(model => model.Region, new { @class = "form-control", @placeholder = "Region" })
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email:</label>
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Email" })
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Active:</label>
+                    @Html.TextBoxFor(model => model.Active, new { @class = "form-control", @placeholder = "Active" })
+                </div>
+
+                
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                <button type="submit" class="btn btn-success btn-sm btn-block">Update</button>
+            </div>
+            @*<div class="col-md-3 col-sm-3">
+                    <button type="submit" name="addmore" class="btn btn-info btn-sm btn-block">Save &amp; Add More..</button>
+                </div>*@
+            <div class="col-md-3 col-sm-3">
+                <a class="btn btn-primary btn-block" style="color:white;" href="@Url.Action("RegistrationList", "UserAccount")">Cancel</a>
+            </div>
+        </div>
+        </form>
+    </div>
+    </div>
+</div>

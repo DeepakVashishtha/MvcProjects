@@ -1,0 +1,945 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GreenFieldModelStoreContainer" CdmEntityContainer="GreenFieldEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="GreenFieldModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="GreenFieldModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="GreenFieldModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="GreenFieldModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="GreenFieldModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="GreenFieldModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FarmFieldPlantHarvestDataDetails">
+      <EntityTypeMapping TypeName="GreenFieldModel.FarmFieldPlantHarvestDataDetail">
+        <MappingFragment StoreEntitySet="FarmFieldPlantHarvestDataDetail">
+          <ScalarProperty Name="FarmFieldPlantHarvestDataDetailID" ColumnName="FarmFieldPlantHarvestDataDetailID" />
+          <ScalarProperty Name="FarmFieldPlantHarvestDataID" ColumnName="FarmFieldPlantHarvestDataID" />
+          <ScalarProperty Name="ContainerIDNO" ColumnName="ContainerIDNO" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FarmFieldPlantHarvestDatas">
+      <EntityTypeMapping TypeName="GreenFieldModel.FarmFieldPlantHarvestData">
+        <MappingFragment StoreEntitySet="FarmFieldPlantHarvestDatas">
+          <ScalarProperty Name="FarmFieldPlantHarvestDataID" ColumnName="FarmFieldPlantHarvestDataID" />
+          <ScalarProperty Name="FarmFieldPlantID" ColumnName="FarmFieldPlantID" />
+          <ScalarProperty Name="HarvestDate" ColumnName="HarvestDate" />
+          <ScalarProperty Name="WeightTicketNumber" ColumnName="WeightTicketNumber" />
+          <ScalarProperty Name="TotalPoundsIn" ColumnName="TotalPoundsIn" />
+          <ScalarProperty Name="TotalContainers" ColumnName="TotalContainers" />
+          <ScalarProperty Name="AverageWeightPerContainer" ColumnName="AverageWeightPerContainer" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FarmFieldPlants">
+      <EntityTypeMapping TypeName="GreenFieldModel.FarmFieldPlant">
+        <MappingFragment StoreEntitySet="FarmFieldPlants">
+          <ScalarProperty Name="FarmFieldPlantID" ColumnName="FarmFieldPlantID" />
+          <ScalarProperty Name="FarmFieldID" ColumnName="FarmFieldID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="ProduceIDNumber" ColumnName="ProduceIDNumber" />
+          <ScalarProperty Name="DatePlanted" ColumnName="DatePlanted" />
+          <ScalarProperty Name="LotNo" ColumnName="LotNo" />
+          <ScalarProperty Name="ScheduledHarvestDate" ColumnName="ScheduledHarvestDate" />
+          <ScalarProperty Name="TotalPoundsHarvested" ColumnName="TotalPoundsHarvested" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FarmFields">
+      <EntityTypeMapping TypeName="GreenFieldModel.FarmField">
+        <MappingFragment StoreEntitySet="FarmFields">
+          <ScalarProperty Name="FarmFieldID" ColumnName="FarmFieldID" />
+          <ScalarProperty Name="FieldIDNumber" ColumnName="FieldIDNumber" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="LegalDescription" ColumnName="LegalDescription" />
+          <ScalarProperty Name="TotalAcres" ColumnName="TotalAcres" />
+          <ScalarProperty Name="IrrigationSource1" ColumnName="IrrigationSource1" />
+          <ScalarProperty Name="IrrigationSource2" ColumnName="IrrigationSource2" />
+          <ScalarProperty Name="IrrigationSource3" ColumnName="IrrigationSource3" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PageDetails">
+      <EntityTypeMapping TypeName="GreenFieldModel.PageDetail">
+        <MappingFragment StoreEntitySet="PageDetails">
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pesticides">
+      <EntityTypeMapping TypeName="GreenFieldModel.Pesticide">
+        <MappingFragment StoreEntitySet="Pesticides">
+          <ScalarProperty Name="PesticideID" ColumnName="PesticideID" />
+          <ScalarProperty Name="PesticideName" ColumnName="PesticideName" />
+          <ScalarProperty Name="RatesListedPer" ColumnName="RatesListedPer" />
+          <ScalarProperty Name="RestrictedUseData" ColumnName="RestrictedUseData" />
+          <ScalarProperty Name="RestrictedEntryLevelData" ColumnName="RestrictedEntryLevelData" />
+          <ScalarProperty Name="PesticideLabelSignalWord" ColumnName="PesticideLabelSignalWord" />
+          <ScalarProperty Name="WPSOralNotification" ColumnName="WPSOralNotification" />
+          <ScalarProperty Name="Toxicity" ColumnName="Toxicity" />
+          <ScalarProperty Name="Formulation" ColumnName="Formulation" />
+          <ScalarProperty Name="ActiveIndegrident" ColumnName="ActiveIndegrident" />
+          <ScalarProperty Name="EPARegistrationNumber" ColumnName="EPARegistrationNumber" />
+          <ScalarProperty Name="RestrictedEntryInterval" ColumnName="RestrictedEntryInterval" />
+          <ScalarProperty Name="ProductRate" ColumnName="ProductRate" />
+          <ScalarProperty Name="TotalProductConsumed" ColumnName="TotalProductConsumed" />
+          <ScalarProperty Name="ApplicatorName" ColumnName="ApplicatorName" />
+          <ScalarProperty Name="CertificationNumber" ColumnName="CertificationNumber" />
+          <ScalarProperty Name="Speed" ColumnName="Speed" />
+          <ScalarProperty Name="MPH" ColumnName="MPH" />
+          <ScalarProperty Name="GPA" ColumnName="GPA" />
+          <ScalarProperty Name="Concentration" ColumnName="Concentration" />
+          <ScalarProperty Name="SprayRig" ColumnName="SprayRig" />
+          <ScalarProperty Name="NozzelSetup" ColumnName="NozzelSetup" />
+          <ScalarProperty Name="SprayingInstructions" ColumnName="SprayingInstructions" />
+          <ScalarProperty Name="ProductMeasurementTypeID" ColumnName="ProductMeasurementTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pests">
+      <EntityTypeMapping TypeName="GreenFieldModel.Pest">
+        <MappingFragment StoreEntitySet="Pests">
+          <ScalarProperty Name="PestID" ColumnName="PestID" />
+          <ScalarProperty Name="PestName" ColumnName="PestName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductMeasurementTypes">
+      <EntityTypeMapping TypeName="GreenFieldModel.ProductMeasurementType">
+        <MappingFragment StoreEntitySet="ProductMeasurementTypes">
+          <ScalarProperty Name="ProductMeasurementTypeID" ColumnName="ProductMeasurementTypeID" />
+          <ScalarProperty Name="ProductMeasurementTypeName" ColumnName="ProductMeasurementTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="GreenFieldModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="QuantityPerPallet" ColumnName="QuantityPerPallet" />
+          <ScalarProperty Name="PalletType" ColumnName="PalletType" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="FieldNo" ColumnName="FieldNo" />
+          <ScalarProperty Name="LotNo" ColumnName="LotNo" />
+          <ScalarProperty Name="WarehouseLocation" ColumnName="WarehouseLocation" />
+          <ScalarProperty Name="SKU" ColumnName="SKU" />
+          <ScalarProperty Name="productBarCode" ColumnName="productBarCode" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="RetailUPCCode" ColumnName="RetailUPCCode" />
+          <ScalarProperty Name="ProductWeight" ColumnName="ProductWeight" />
+          <ScalarProperty Name="VendorUCC" ColumnName="VendorUCC" />
+          <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTypes">
+      <EntityTypeMapping TypeName="GreenFieldModel.ProductType">
+        <MappingFragment StoreEntitySet="ProductTypes">
+          <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
+          <ScalarProperty Name="ProductTypeName" ColumnName="ProductTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PTIHeaders">
+      <EntityTypeMapping TypeName="GreenFieldModel.PTIHeader">
+        <MappingFragment StoreEntitySet="PTIHeader">
+          <ScalarProperty Name="PTISerialID" ColumnName="PTISerialID" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="FarmFieldPlantID" ColumnName="FarmFieldPlantID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SecurityLevels">
+      <EntityTypeMapping TypeName="GreenFieldModel.SecurityLevel">
+        <MappingFragment StoreEntitySet="SecurityLevels">
+          <ScalarProperty Name="SecurityLevelID" ColumnName="SecurityLevelID" />
+          <ScalarProperty Name="SecurityLevelName" ColumnName="SecurityLevelName" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="PageEdit" ColumnName="PageEdit" />
+          <ScalarProperty Name="PageView" ColumnName="PageView" />
+          <ScalarProperty Name="PageDelete" ColumnName="PageDelete" />
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="GreenFieldModel.Supplier">
+        <MappingFragment StoreEntitySet="Suppliers">
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="ContactTitle" ColumnName="ContactTitle" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="HomePage" ColumnName="HomePage" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CompanyUCCprefix" ColumnName="CompanyUCCprefix" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplies">
+      <EntityTypeMapping TypeName="GreenFieldModel.Supply">
+        <MappingFragment StoreEntitySet="Supplies">
+          <ScalarProperty Name="SupplyID" ColumnName="SupplyID" />
+          <ScalarProperty Name="SupplyCode" ColumnName="SupplyCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SupplyType" ColumnName="SupplyType" />
+          <ScalarProperty Name="UnitOfMeasure" ColumnName="UnitOfMeasure" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="NotificationLevel" ColumnName="NotificationLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="GreenFieldModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+          <ScalarProperty Name="SecurityLevelID" ColumnName="SecurityLevelID" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="TitleOfCourtesy" ColumnName="TitleOfCourtesy" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="ReportsTo" ColumnName="ReportsTo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTypes">
+      <EntityTypeMapping TypeName="GreenFieldModel.UserType">
+        <MappingFragment StoreEntitySet="UserTypes">
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="GreenFieldModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="USP_Categories_All" FunctionName="GreenFieldModel.Store.USP_Categories_All">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_Categories_All_Result">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_Categories_Delete" FunctionName="GreenFieldModel.Store.USP_Categories_Delete" />
+    <FunctionImportMapping FunctionImportName="USP_Categories_Get" FunctionName="GreenFieldModel.Store.USP_Categories_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_Categories_Get_Result">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_Categories_Insert" FunctionName="GreenFieldModel.Store.USP_Categories_Insert" />
+    <FunctionImportMapping FunctionImportName="USP_Categories_Update" FunctionName="GreenFieldModel.Store.USP_Categories_Update" />
+    <FunctionImportMapping FunctionImportName="USP_FarmDashboard_ByCategory" FunctionName="GreenFieldModel.Store.USP_FarmDashboard_ByCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_FarmDashboard_ByCategory_Result">
+          <ScalarProperty Name="HarvestYearDate" ColumnName="HarvestYearDate" />
+          <ScalarProperty Name="HarvestMonthDate" ColumnName="HarvestMonthDate" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="TotalPoundsHarvested" ColumnName="TotalPoundsHarvested" />
+          <ScalarProperty Name="TotalPoundsForecast" ColumnName="TotalPoundsForecast" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_FarmDashboard_ByLot" FunctionName="GreenFieldModel.Store.USP_FarmDashboard_ByLot">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_FarmDashboard_ByLot_Result">
+          <ScalarProperty Name="HarvestYearDate" ColumnName="HarvestYearDate" />
+          <ScalarProperty Name="HarvestMonthDate" ColumnName="HarvestMonthDate" />
+          <ScalarProperty Name="LotNo" ColumnName="LotNo" />
+          <ScalarProperty Name="TotalPoundsHarvested" ColumnName="TotalPoundsHarvested" />
+          <ScalarProperty Name="TotalPoundsForecast" ColumnName="TotalPoundsForecast" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_FarmDashboard_ByStages" FunctionName="GreenFieldModel.Store.USP_FarmDashboard_ByStages">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_FarmDashboard_ByStages_Result">
+          <ScalarProperty Name="HarvestYear" ColumnName="HarvestYear" />
+          <ScalarProperty Name="FarmFieldStatusName" ColumnName="FarmFieldStatusName" />
+          <ScalarProperty Name="NumLotNo" ColumnName="NumLotNo" />
+          <ScalarProperty Name="NumLotNoPct" ColumnName="NumLotNoPct" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_FarmDashboard_HF" FunctionName="GreenFieldModel.Store.USP_FarmDashboard_HF">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_FarmDashboard_HF_Result">
+          <ScalarProperty Name="HarvestYearDate" ColumnName="HarvestYearDate" />
+          <ScalarProperty Name="HarvestMonthDate" ColumnName="HarvestMonthDate" />
+          <ScalarProperty Name="TotalPoundsHarvested" ColumnName="TotalPoundsHarvested" />
+          <ScalarProperty Name="NumCategoryID" ColumnName="NumCategoryID" />
+          <ScalarProperty Name="TotalPoundsForecast" ColumnName="TotalPoundsForecast" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_FarmDashboard_Raw" FunctionName="GreenFieldModel.Store.USP_FarmDashboard_Raw">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_FarmDashboard_Raw_Result">
+          <ScalarProperty Name="FarmFieldPlantID" ColumnName="FarmFieldPlantID" />
+          <ScalarProperty Name="DatePlanted" ColumnName="DatePlanted" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="LotNo" ColumnName="LotNo" />
+          <ScalarProperty Name="ScheduledHarvestDate" ColumnName="ScheduledHarvestDate" />
+          <ScalarProperty Name="TotalPoundsHarvested" ColumnName="TotalPoundsHarvested" />
+          <ScalarProperty Name="TotalPoundsForecast" ColumnName="TotalPoundsForecast" />
+          <ScalarProperty Name="FarmFieldPlantConditionID" ColumnName="FarmFieldPlantConditionID" />
+          <ScalarProperty Name="FarmFieldPlantConditionName" ColumnName="FarmFieldPlantConditionName" />
+          <ScalarProperty Name="FarmFieldPlantStatusID" ColumnName="FarmFieldPlantStatusID" />
+          <ScalarProperty Name="FarmFieldPlantStatusName" ColumnName="FarmFieldPlantStatusName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_FarmDashboard_Summary" FunctionName="GreenFieldModel.Store.USP_FarmDashboard_Summary">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_FarmDashboard_Summary_Result">
+          <ScalarProperty Name="YearHarvestDate" ColumnName="YearHarvestDate" />
+          <ScalarProperty Name="TotalNumCategory" ColumnName="TotalNumCategory" />
+          <ScalarProperty Name="NumCategoryHarvest" ColumnName="NumCategoryHarvest" />
+          <ScalarProperty Name="TotalNumLotNo" ColumnName="TotalNumLotNo" />
+          <ScalarProperty Name="NumLotNoHarvest" ColumnName="NumLotNoHarvest" />
+          <ScalarProperty Name="TotalPoundsHarvested" ColumnName="TotalPoundsHarvested" />
+          <ScalarProperty Name="TotalPoundsForecast" ColumnName="TotalPoundsForecast" />
+          <ScalarProperty Name="EstimatedFutureHarvestLeft" ColumnName="EstimatedFutureHarvestLeft" />
+          <ScalarProperty Name="HarvestedLbsPercentage" ColumnName="HarvestedLbsPercentage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_FarmFields_All" FunctionName="GreenFieldModel.Store.USP_FarmFields_All">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_FarmFields_All_Result">
+          <ScalarProperty Name="FarmFieldID" ColumnName="FarmFieldID" />
+          <ScalarProperty Name="FieldIDNumber" ColumnName="FieldIDNumber" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="LegalDescription" ColumnName="LegalDescription" />
+          <ScalarProperty Name="TotalAcres" ColumnName="TotalAcres" />
+          <ScalarProperty Name="IrrigationSource1" ColumnName="IrrigationSource1" />
+          <ScalarProperty Name="IrrigationSource2" ColumnName="IrrigationSource2" />
+          <ScalarProperty Name="IrrigationSource3" ColumnName="IrrigationSource3" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_FarmFields_Delete" FunctionName="GreenFieldModel.Store.USP_FarmFields_Delete" />
+    <FunctionImportMapping FunctionImportName="USP_FarmFields_Get" FunctionName="GreenFieldModel.Store.USP_FarmFields_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_FarmFields_Get_Result">
+          <ScalarProperty Name="FarmFieldID" ColumnName="FarmFieldID" />
+          <ScalarProperty Name="FieldIDNumber" ColumnName="FieldIDNumber" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="LegalDescription" ColumnName="LegalDescription" />
+          <ScalarProperty Name="TotalAcres" ColumnName="TotalAcres" />
+          <ScalarProperty Name="IrrigationSource1" ColumnName="IrrigationSource1" />
+          <ScalarProperty Name="IrrigationSource2" ColumnName="IrrigationSource2" />
+          <ScalarProperty Name="IrrigationSource3" ColumnName="IrrigationSource3" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_FarmFields_Insert" FunctionName="GreenFieldModel.Store.USP_FarmFields_Insert" />
+    <FunctionImportMapping FunctionImportName="USP_FarmFields_Update" FunctionName="GreenFieldModel.Store.USP_FarmFields_Update" />
+    <FunctionImportMapping FunctionImportName="USP_GETROLE" FunctionName="GreenFieldModel.Store.USP_GETROLE">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_GETROLE_Result">
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+          <ScalarProperty Name="SecurityLevelName" ColumnName="SecurityLevelName" />
+          <ScalarProperty Name="PageEdit" ColumnName="PageEdit" />
+          <ScalarProperty Name="PageView" ColumnName="PageView" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="SecurityLevelID" ColumnName="SecurityLevelID" />
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_PageDetails_All" FunctionName="GreenFieldModel.Store.USP_PageDetails_All">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_PageDetails_All_Result">
+          <ScalarProperty Name="pageId" ColumnName="pageId" />
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_Pesticides_All" FunctionName="GreenFieldModel.Store.USP_Pesticides_All">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_Pesticides_All_Result">
+          <ScalarProperty Name="PesticideID" ColumnName="PesticideID" />
+          <ScalarProperty Name="PesticideName" ColumnName="PesticideName" />
+          <ScalarProperty Name="RatesListedPer" ColumnName="RatesListedPer" />
+          <ScalarProperty Name="RestrictedUseData" ColumnName="RestrictedUseData" />
+          <ScalarProperty Name="RestrictedEntryLevelData" ColumnName="RestrictedEntryLevelData" />
+          <ScalarProperty Name="PesticideLabelSignalWord" ColumnName="PesticideLabelSignalWord" />
+          <ScalarProperty Name="WPSOralNotification" ColumnName="WPSOralNotification" />
+          <ScalarProperty Name="Toxicity" ColumnName="Toxicity" />
+          <ScalarProperty Name="Formulation" ColumnName="Formulation" />
+          <ScalarProperty Name="ActiveIndegrident" ColumnName="ActiveIndegrident" />
+          <ScalarProperty Name="EPARegistrationNumber" ColumnName="EPARegistrationNumber" />
+          <ScalarProperty Name="RestrictedEntryInterval" ColumnName="RestrictedEntryInterval" />
+          <ScalarProperty Name="ProductRate" ColumnName="ProductRate" />
+          <ScalarProperty Name="TotalProductConsumed" ColumnName="TotalProductConsumed" />
+          <ScalarProperty Name="ApplicatorName" ColumnName="ApplicatorName" />
+          <ScalarProperty Name="CertificationNumber" ColumnName="CertificationNumber" />
+          <ScalarProperty Name="Speed" ColumnName="Speed" />
+          <ScalarProperty Name="MPH" ColumnName="MPH" />
+          <ScalarProperty Name="GPA" ColumnName="GPA" />
+          <ScalarProperty Name="Concentration" ColumnName="Concentration" />
+          <ScalarProperty Name="SprayRig" ColumnName="SprayRig" />
+          <ScalarProperty Name="NozzelSetup" ColumnName="NozzelSetup" />
+          <ScalarProperty Name="SprayingInstructions" ColumnName="SprayingInstructions" />
+          <ScalarProperty Name="ProductMeasurementTypeID" ColumnName="ProductMeasurementTypeID" />
+          <ScalarProperty Name="ProductMeasurementTypeName" ColumnName="ProductMeasurementTypeName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_Pesticides_Delete" FunctionName="GreenFieldModel.Store.USP_Pesticides_Delete" />
+    <FunctionImportMapping FunctionImportName="USP_Pesticides_Get" FunctionName="GreenFieldModel.Store.USP_Pesticides_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_Pesticides_Get_Result">
+          <ScalarProperty Name="PesticideID" ColumnName="PesticideID" />
+          <ScalarProperty Name="PesticideName" ColumnName="PesticideName" />
+          <ScalarProperty Name="RatesListedPer" ColumnName="RatesListedPer" />
+          <ScalarProperty Name="RestrictedUseData" ColumnName="RestrictedUseData" />
+          <ScalarProperty Name="RestrictedEntryLevelData" ColumnName="RestrictedEntryLevelData" />
+          <ScalarProperty Name="PesticideLabelSignalWord" ColumnName="PesticideLabelSignalWord" />
+          <ScalarProperty Name="WPSOralNotification" ColumnName="WPSOralNotification" />
+          <ScalarProperty Name="Formulation" ColumnName="Formulation" />
+          <ScalarProperty Name="ActiveIndegrident" ColumnName="ActiveIndegrident" />
+          <ScalarProperty Name="EPARegistrationNumber" ColumnName="EPARegistrationNumber" />
+          <ScalarProperty Name="RestrictedEntryInterval" ColumnName="RestrictedEntryInterval" />
+          <ScalarProperty Name="ProductRate" ColumnName="ProductRate" />
+          <ScalarProperty Name="TotalProductConsumed" ColumnName="TotalProductConsumed" />
+          <ScalarProperty Name="ApplicatorName" ColumnName="ApplicatorName" />
+          <ScalarProperty Name="CertificationNumber" ColumnName="CertificationNumber" />
+          <ScalarProperty Name="Speed" ColumnName="Speed" />
+          <ScalarProperty Name="MPH" ColumnName="MPH" />
+          <ScalarProperty Name="GPA" ColumnName="GPA" />
+          <ScalarProperty Name="Concentration" ColumnName="Concentration" />
+          <ScalarProperty Name="SprayRig" ColumnName="SprayRig" />
+          <ScalarProperty Name="NozzelSetup" ColumnName="NozzelSetup" />
+          <ScalarProperty Name="SprayingInstructions" ColumnName="SprayingInstructions" />
+          <ScalarProperty Name="ProductMeasurementTypeID" ColumnName="ProductMeasurementTypeID" />
+          <ScalarProperty Name="ProductMeasurementTypeName" ColumnName="ProductMeasurementTypeName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_Pesticides_Insert" FunctionName="GreenFieldModel.Store.USP_Pesticides_Insert" />
+    <FunctionImportMapping FunctionImportName="USP_Pesticides_Update" FunctionName="GreenFieldModel.Store.USP_Pesticides_Update" />
+    <FunctionImportMapping FunctionImportName="USP_Pests_All" FunctionName="GreenFieldModel.Store.USP_Pests_All">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_Pests_All_Result">
+          <ScalarProperty Name="PestID" ColumnName="PestID" />
+          <ScalarProperty Name="PestName" ColumnName="PestName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_Pests_Delete" FunctionName="GreenFieldModel.Store.USP_Pests_Delete" />
+    <FunctionImportMapping FunctionImportName="USP_Pests_Get" FunctionName="GreenFieldModel.Store.USP_Pests_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_Pests_Get_Result">
+          <ScalarProperty Name="PestID" ColumnName="PestID" />
+          <ScalarProperty Name="PestName" ColumnName="PestName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_Pests_Insert" FunctionName="GreenFieldModel.Store.USP_Pests_Insert" />
+    <FunctionImportMapping FunctionImportName="USP_Pests_Update" FunctionName="GreenFieldModel.Store.USP_Pests_Update" />
+    <FunctionImportMapping FunctionImportName="USP_ProductMeasurementTypes_All" FunctionName="GreenFieldModel.Store.USP_ProductMeasurementTypes_All">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_ProductMeasurementTypes_All_Result">
+          <ScalarProperty Name="ProductMeasurementTypeID" ColumnName="ProductMeasurementTypeID" />
+          <ScalarProperty Name="ProductMeasurementTypeName" ColumnName="ProductMeasurementTypeName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_ProductMeasurementTypes_Delete" FunctionName="GreenFieldModel.Store.USP_ProductMeasurementTypes_Delete" />
+    <FunctionImportMapping FunctionImportName="USP_ProductMeasurementTypes_Get" FunctionName="GreenFieldModel.Store.USP_ProductMeasurementTypes_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_ProductMeasurementTypes_Get_Result">
+          <ScalarProperty Name="ProductMeasurementTypeID" ColumnName="ProductMeasurementTypeID" />
+          <ScalarProperty Name="ProductMeasurementTypeName" ColumnName="ProductMeasurementTypeName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_ProductMeasurementTypes_Insert" FunctionName="GreenFieldModel.Store.USP_ProductMeasurementTypes_Insert" />
+    <FunctionImportMapping FunctionImportName="USP_ProductMeasurementTypes_Update" FunctionName="GreenFieldModel.Store.USP_ProductMeasurementTypes_Update" />
+    <FunctionImportMapping FunctionImportName="USP_PTI_LotBySupplierID" FunctionName="GreenFieldModel.Store.USP_PTI_LotBySupplierID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_PTI_LotBySupplierID_Result">
+          <ScalarProperty Name="FarmFieldPlantID" ColumnName="FarmFieldPlantID" />
+          <ScalarProperty Name="LotNo" ColumnName="LotNo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_PTI_PrintTradeItem" FunctionName="GreenFieldModel.Store.USP_PTI_PrintTradeItem">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_PTI_PrintTradeItem_Result">
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="PTISerialID" ColumnName="PTISerialID" />
+          <ScalarProperty Name="BarcodeEAN128" ColumnName="BarcodeEAN128" />
+          <ScalarProperty Name="BarcodeEAN128Label" ColumnName="BarcodeEAN128Label" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="GTIN" ColumnName="GTIN" />
+          <ScalarProperty Name="LotNo" ColumnName="LotNo" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_PTI_ProductItems" FunctionName="GreenFieldModel.Store.USP_PTI_ProductItems">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_PTI_ProductItems_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_PTI_SSCCInsert" FunctionName="GreenFieldModel.Store.USP_PTI_SSCCInsert" />
+    <FunctionImportMapping FunctionImportName="USP_SecurityLevels_All" FunctionName="GreenFieldModel.Store.USP_SecurityLevels_All">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_SecurityLevels_All_Result">
+          <ScalarProperty Name="SecurityLevelID" ColumnName="SecurityLevelID" />
+          <ScalarProperty Name="SecurityLevelName" ColumnName="SecurityLevelName" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+          <ScalarProperty Name="PageEdit" ColumnName="PageEdit" />
+          <ScalarProperty Name="PageView" ColumnName="PageView" />
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_SecurityLevels_Delete" FunctionName="GreenFieldModel.Store.USP_SecurityLevels_Delete" />
+    <FunctionImportMapping FunctionImportName="USP_SecurityLevels_Get" FunctionName="GreenFieldModel.Store.USP_SecurityLevels_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_SecurityLevels_Get_Result">
+          <ScalarProperty Name="SecurityLevelID" ColumnName="SecurityLevelID" />
+          <ScalarProperty Name="SecurityLevelName" ColumnName="SecurityLevelName" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_SecurityLevels_GetByUserTypeID" FunctionName="GreenFieldModel.Store.USP_SecurityLevels_GetByUserTypeID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_SecurityLevels_GetByUserTypeID_Result">
+          <ScalarProperty Name="SecurityLevelID" ColumnName="SecurityLevelID" />
+          <ScalarProperty Name="SecurityLevelName" ColumnName="SecurityLevelName" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_SecurityLevels_Insert" FunctionName="GreenFieldModel.Store.USP_SecurityLevels_Insert" />
+    <FunctionImportMapping FunctionImportName="USP_SecurityLevels_Update" FunctionName="GreenFieldModel.Store.USP_SecurityLevels_Update" />
+    <FunctionImportMapping FunctionImportName="USP_Suppliers_All" FunctionName="GreenFieldModel.Store.USP_Suppliers_All">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_Suppliers_All_Result">
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="ContactTitle" ColumnName="ContactTitle" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="HomePage" ColumnName="HomePage" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CompanyUCCprefix" ColumnName="CompanyUCCprefix" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_Suppliers_Delete" FunctionName="GreenFieldModel.Store.USP_Suppliers_Delete" />
+    <FunctionImportMapping FunctionImportName="USP_Suppliers_Get" FunctionName="GreenFieldModel.Store.USP_Suppliers_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_Suppliers_Get_Result">
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="ContactTitle" ColumnName="ContactTitle" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="HomePage" ColumnName="HomePage" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CompanyUCCprefix" ColumnName="CompanyUCCprefix" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_Suppliers_Insert" FunctionName="GreenFieldModel.Store.USP_Suppliers_Insert" />
+    <FunctionImportMapping FunctionImportName="USP_Suppliers_Update" FunctionName="GreenFieldModel.Store.USP_Suppliers_Update" />
+    <FunctionImportMapping FunctionImportName="USP_User_Login" FunctionName="GreenFieldModel.Store.USP_User_Login">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_User_Login_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="SecurityLevelID" ColumnName="SecurityLevelID" />
+          <ScalarProperty Name="SecurityLevelName" ColumnName="SecurityLevelName" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_Users_All" FunctionName="GreenFieldModel.Store.USP_Users_All">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_Users_All_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+          <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+          <ScalarProperty Name="ReferenceName" ColumnName="ReferenceName" />
+          <ScalarProperty Name="SecurityLevelID" ColumnName="SecurityLevelID" />
+          <ScalarProperty Name="SecurityLevelName" ColumnName="SecurityLevelName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="TitleOfCourtesy" ColumnName="TitleOfCourtesy" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="ReportsTo" ColumnName="ReportsTo" />
+          <ScalarProperty Name="ReportsToName" ColumnName="ReportsToName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_Users_Delete" FunctionName="GreenFieldModel.Store.USP_Users_Delete" />
+    <FunctionImportMapping FunctionImportName="USP_Users_Get" FunctionName="GreenFieldModel.Store.USP_Users_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_Users_Get_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+          <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+          <ScalarProperty Name="ReferenceName" ColumnName="ReferenceName" />
+          <ScalarProperty Name="SecurityLevelID" ColumnName="SecurityLevelID" />
+          <ScalarProperty Name="SecurityLevelName" ColumnName="SecurityLevelName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="TitleOfCourtesy" ColumnName="TitleOfCourtesy" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="ReportsTo" ColumnName="ReportsTo" />
+          <ScalarProperty Name="ReportsToName" ColumnName="ReportsToName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_Users_GetByReferenceID" FunctionName="GreenFieldModel.Store.USP_Users_GetByReferenceID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_Users_GetByReferenceID_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+          <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+          <ScalarProperty Name="ReferenceName" ColumnName="ReferenceName" />
+          <ScalarProperty Name="SecurityLevelID" ColumnName="SecurityLevelID" />
+          <ScalarProperty Name="SecurityLevelName" ColumnName="SecurityLevelName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="TitleOfCourtesy" ColumnName="TitleOfCourtesy" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="ReportsTo" ColumnName="ReportsTo" />
+          <ScalarProperty Name="ReportsToName" ColumnName="ReportsToName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_Users_GetBySecurityLevelAndReference" FunctionName="GreenFieldModel.Store.USP_Users_GetBySecurityLevelAndReference">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_Users_GetBySecurityLevelAndReference_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+          <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+          <ScalarProperty Name="ReferenceName" ColumnName="ReferenceName" />
+          <ScalarProperty Name="SecurityLevelID" ColumnName="SecurityLevelID" />
+          <ScalarProperty Name="SecurityLevelName" ColumnName="SecurityLevelName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="TitleOfCourtesy" ColumnName="TitleOfCourtesy" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="ReportsTo" ColumnName="ReportsTo" />
+          <ScalarProperty Name="ReportsToName" ColumnName="ReportsToName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_Users_GetBySecurityLevelID" FunctionName="GreenFieldModel.Store.USP_Users_GetBySecurityLevelID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_Users_GetBySecurityLevelID_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+          <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+          <ScalarProperty Name="ReferenceName" ColumnName="ReferenceName" />
+          <ScalarProperty Name="SecurityLevelID" ColumnName="SecurityLevelID" />
+          <ScalarProperty Name="SecurityLevelName" ColumnName="SecurityLevelName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="TitleOfCourtesy" ColumnName="TitleOfCourtesy" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="ReportsTo" ColumnName="ReportsTo" />
+          <ScalarProperty Name="ReportsToName" ColumnName="ReportsToName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_Users_GetByUserTypeID" FunctionName="GreenFieldModel.Store.USP_Users_GetByUserTypeID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_Users_GetByUserTypeID_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+          <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+          <ScalarProperty Name="ReferenceName" ColumnName="ReferenceName" />
+          <ScalarProperty Name="SecurityLevelID" ColumnName="SecurityLevelID" />
+          <ScalarProperty Name="SecurityLevelName" ColumnName="SecurityLevelName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="TitleOfCourtesy" ColumnName="TitleOfCourtesy" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="ReportsTo" ColumnName="ReportsTo" />
+          <ScalarProperty Name="ReportsToName" ColumnName="ReportsToName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_Users_Insert" FunctionName="GreenFieldModel.Store.USP_Users_Insert" />
+    <FunctionImportMapping FunctionImportName="USP_Users_Login" FunctionName="GreenFieldModel.Store.USP_Users_Login">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_Users_Login_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="SecurityLevelID" ColumnName="SecurityLevelID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="SecurityLevelName" ColumnName="SecurityLevelName" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+          <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_Users_Update" FunctionName="GreenFieldModel.Store.USP_Users_Update" />
+    <FunctionImportMapping FunctionImportName="USP_UserTypes_All" FunctionName="GreenFieldModel.Store.USP_UserTypes_All">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_UserTypes_All_Result">
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_UserTypes_Delete" FunctionName="GreenFieldModel.Store.USP_UserTypes_Delete" />
+    <FunctionImportMapping FunctionImportName="USP_UserTypes_Get" FunctionName="GreenFieldModel.Store.USP_UserTypes_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GreenFieldModel.USP_UserTypes_Get_Result">
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_UserTypes_Insert" FunctionName="GreenFieldModel.Store.USP_UserTypes_Insert" />
+    <FunctionImportMapping FunctionImportName="USP_UserTypes_Update" FunctionName="GreenFieldModel.Store.USP_UserTypes_Update" />
+  </EntityContainerMapping>
+</Mapping>

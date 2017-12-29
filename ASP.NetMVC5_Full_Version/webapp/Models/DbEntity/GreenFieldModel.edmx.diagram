@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4966048f2f25447790f17e4b6be41539" Name="Diagram1">
+        <EntityTypeShape EntityType="GreenFieldModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.AspNetRole" Width="1.5" PointX="0.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.AspNetUser" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.Category" Width="1.5" PointX="7.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.FarmFieldPlantHarvestDataDetail" Width="1.5" PointX="14.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.FarmFieldPlantHarvestData" Width="1.5" PointX="12.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.FarmFieldPlant" Width="1.5" PointX="10" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.FarmField" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.PageDetail" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.Pesticide" Width="1.5" PointX="10" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.Pest" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.ProductMeasurementType" Width="1.5" PointX="7.75" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.Product" Width="1.5" PointX="13" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.ProductType" Width="1.5" PointX="10.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.PTIHeader" Width="1.5" PointX="2.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.SecurityLevel" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.Supplier" Width="1.5" PointX="5.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.Supply" Width="1.5" PointX="12.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.User" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GreenFieldModel.UserType" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <AssociationConnector Association="GreenFieldModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="GreenFieldModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="GreenFieldModel.FK_FarmFieldPlants_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="GreenFieldModel.FK_Products_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="GreenFieldModel.FK_FarmFieldPlantHarvestDataDetail_FarmFieldPlantHarvestDatas" ManuallyRouted="false" />
+        <AssociationConnector Association="GreenFieldModel.FK_FarmFieldPlantHarvestDatas_FarmFieldPlants" ManuallyRouted="false" />
+        <AssociationConnector Association="GreenFieldModel.FK_FarmFieldPlants_FarmFields" ManuallyRouted="false" />
+        <AssociationConnector Association="GreenFieldModel.FK_FarmFields_Suppliers" ManuallyRouted="false" />
+        <AssociationConnector Association="GreenFieldModel.FK_SecurityLevels_PageDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="GreenFieldModel.FK_Pesticides_ProductMeasurementTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="GreenFieldModel.FK_Products_ProductTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="GreenFieldModel.SecurityLevels_Users_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GreenFieldModel.UserTypes_SecurityLevels_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GreenFieldModel.UserTypes_Users_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="GreenFieldModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

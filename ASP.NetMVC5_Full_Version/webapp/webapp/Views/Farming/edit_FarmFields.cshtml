@@ -1,0 +1,100 @@
+﻿@model SmartAdminMvc.Models.DbEntity.USP_FarmFields_Get_Result
+
+<div id="content">
+    <!-- row -->
+    <div class="row">
+        <!-- col -->
+        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+            <h1 class="page-title txt-color-blueDark">
+                <!-- PAGE HEADER --><i class="fa-fw fa fa-home"></i> Farming <span>
+                    &gt;
+                    <a style="color:#3276b1;text-decoration:underline" href="@Url.Action("FarmFields", "Farming")">Farm Field</a> &gt;Edit Farm Field
+                </span>
+            </h1>
+        </div>
+        <!-- end col -->
+    </div>
+    <div id="content1" class="col-lg-12 col-sm-12">
+
+
+        <h1>Edit Farm Field</h1>
+
+
+        <div class="box-content">
+            <form role="form" action="add_FarmFields" method="POST">
+                @Html.HiddenFor(model => model.FarmFieldID)
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">FieldID Number:</label>
+                        @Html.TextBoxFor(model => model.FieldIDNumber, new { @class = "form-control", @placeholder = "Company Name" })
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Field Name:</label>
+                        @Html.TextBoxFor(model => model.FieldName, new { @class = "form-control", @placeholder = "Contact Name" })
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Supplier Name:</label>
+                        @Html.DropDownListFor(model => model.SupplierID, ViewBag.SuppliersTypeDDL as List<SelectListItem>, new { @class = "form-control", @placeholder = "contact name" })
+                       
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Legal Description:</label>
+                        @Html.TextBoxFor(model => model.LegalDescription, new { @class = "form-control", @placeholder = "Address" })
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Total Acres:</label>
+                        @Html.TextBoxFor(model => model.TotalAcres, new { @class = "form-control", @placeholder = "City" })
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Irrigation Source1:</label>
+                        @Html.TextBoxFor(model => model.IrrigationSource1, new { @class = "form-control", @placeholder = "Region" })
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Irrigation Source2:</label>
+                        @Html.TextBoxFor(model => model.IrrigationSource2, new { @class = "form-control", @placeholder = "Postal Code" })
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Irrigation Source3:</label>
+                        @Html.TextBoxFor(model => model.IrrigationSource3, new { @class = "form-control", @placeholder = "Country" })
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Comments:</label>
+                        @Html.TextBoxFor(model => model.Comments, new { @class = "form-control", @placeholder = "Phone" })
+                    </div>
+                </div>
+
+
+               <!--  <div class="row">-->
+                    <div class="col-md-4 col-sm-4">
+                        <button type="submit" class="btn btn-success btn-sm btn-block">Update</button>
+                    </div>
+                    
+                    <div class="col-md-4 col-sm-4">
+                        <a class="btn btn-primary btn-block" style="color:white;" href="@Url.Action("FarmFields", "Farming")">Cancel</a>
+                    </div>
+                <!-- </div>-->
+            </form>
+        </div>
+    </div>
+</div>

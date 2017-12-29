@@ -1,0 +1,151 @@
+﻿@model SmartAdminMvc.Models.DbEntity.FarmField
+<div id="content">
+    <!-- row -->
+    <div class="row">
+        <!-- col -->
+        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+            <h1 class="page-title txt-color-blueDark">
+                <!-- PAGE HEADER --><i class="fa-fw fa fa-home"></i>Farm Field <span>
+                    &gt;
+                    <a style="color:#3276b1;text-decoration:underline" href="@Url.Action("FarmFields", "Farming")">Farm Fields</a> &gt;Add FarmField
+                </span>
+            </h1>
+        </div>
+ <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            @if (!string.IsNullOrEmpty(Convert.ToString(TempData["Message"])))
+            {
+                <div class="alert bg-success alert-block">
+                    <button class="close" data-dismiss="alert" aria-hidden="true">×</button><div class="validation-summary-errors">
+                        @TempData["Message"]
+                    </div>
+                </div>
+            }</div>
+        <!-- end col -->
+    </div>
+    <div id="content" class="col-xs-12 col-sm-12 col-md-12">
+
+        <h1>Add Farm Field</h1>
+
+        @using (Html.BeginForm("add_FarmFields", "Farming", FormMethod.Post))
+        {
+            <div class="box-content">
+
+                <input type="hidden" name="_token" value="G0AbqnvLyD2UJo1OoEyfNj2ymFpHOnhNEzdd8Gcs">
+                
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">FieldID Number:</label>
+                        @Html.TextBoxFor(model => model.FieldIDNumber, new { @class = "form-control", @placeholder = "company name" })
+                                            </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Field Name:</label>
+                        @Html.TextBoxFor(model => model.FieldName, new { @class = "form-control", @placeholder = "contact name" })
+                       
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Supplier Name:</label>
+                        @Html.DropDownListFor(model => model.SupplierID, ViewBag.SuppliersTypeDDL as List<SelectListItem>, new { @class = "form-control", @placeholder = "contact name" })
+
+                      
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Legal Description:</label>
+                        @Html.TextBoxFor(model => model.LegalDescription, new { @class = "form-control", @placeholder = "address" })
+                        
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Total Acres:</label>
+                        @Html.TextBoxFor(model => model.TotalAcres, new { @class = "form-control", @placeholder = "city" })
+                     
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Irrigation Source1:</label>
+                        @Html.TextBoxFor(model => model.IrrigationSource1, new { @class = "form-control", @placeholder = "state" })
+                       
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Irrigation Source2:</label>
+                        @Html.TextBoxFor(model => model.IrrigationSource2, new { @class = "form-control", @placeholder = "postal code" })
+                       
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Irrigation Source3:</label>
+                        @Html.TextBoxFor(model => model.IrrigationSource3, new { @class = "form-control", @placeholder = "country" })
+                       
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Comments:</label>
+                        @Html.TextBoxFor(model => model.Comments, new { @class = "form-control", @placeholder = "phone" })
+                      
+                    </div>
+                </div>
+              
+               
+                    @*<div class="row">*@
+                                      <div class="col-md-4 col-sm-4">
+                                          <div class="form-group">
+                                              <button type="submit" class="btn btn-success btn-sm btn-block" name="btnText" value="Save">Save</button>
+                                          </div>
+                        </div>
+                           <div class="col-md-4 col-sm-4">
+                               <div class="form-group">
+
+                                   <button type="submit" class="btn btn-success btn-sm btn-block" name="btnText" value="SaveAddMore">Save Add More..</button>
+                               </div></div>
+                        
+                            <div class="col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    <a class="btn btn-primary btn-block" style="color:white;" href="@Url.Action("FarmFields", "Farming")">Cancel</a>
+                                </div></div>
+                        @*</div>*@
+                    
+
+               </div>
+            }
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

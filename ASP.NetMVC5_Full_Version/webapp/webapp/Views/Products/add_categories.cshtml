@@ -1,0 +1,49 @@
+﻿@model SmartAdminMvc.Models.DbEntity.Category
+<div id="content">
+    <!-- row -->
+    <div class="row">
+        <!-- col -->
+        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+            <h1 class="page-title txt-color-blueDark">
+                <!-- PAGE HEADER --><i class="fa-fw fa fa-home"></i> Products <span>
+                    &gt;
+                    <a style="color:#3276b1;text-decoration:underline" href="@Url.Action("categories", "Products")">Categories</a> &gt;Add Category
+                </span>
+            </h1>
+        </div>
+        <!-- end col -->
+    </div>
+    <div id="content1" class="col-lg-6 col-sm-6">
+        <h1>Add Category</h1>
+        @using (Html.BeginForm("add_categories", "Products", FormMethod.Post))
+        {
+            <div class="box-content">
+                <form role="form" action="add_pests" method="POST">
+                    <input type="hidden" name="_token" value="G0AbqnvLyD2UJo1OoEyfNj2ymFpHOnhNEzdd8Gcs">
+                   
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Category Name:</label>
+                        @Html.TextBoxFor(model => model.CategoryName, new { @class = "form-control", @placeholder = "category name" })
+                        @*<input type="text" name="pest_name" id="pest" class="form-control" placeholder="pest name">*@
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Description:</label>
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @placeholder = "description", @row = 5 })
+                        @*<textarea name="description" id="pest1" class="form-control" placeholder="description" rows="5"></textarea>*@
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3">
+                            <button type="submit" class="btn btn-success btn-sm btn-block">Save</button>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <button type="submit" name="addmore" class="btn btn-info btn-sm btn-block">Save &amp; Add More..</button>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <button type="reset" class="btn btn-primary btn-block"><a style="color:white;" href="@Url.Action("categories", "Products")">Cancel</a></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        }
+    </div>
+</div>

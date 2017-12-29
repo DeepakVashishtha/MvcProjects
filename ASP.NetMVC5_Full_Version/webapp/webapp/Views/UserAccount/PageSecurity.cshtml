@@ -1,0 +1,231 @@
+﻿@model SmartAdminMvc.Models.DbEntity.SecurityLevel
+
+
+<div id="content" class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="well no-padding">
+
+                @using (Html.BeginForm("PageSecurity", "UserAccount", FormMethod.Post, new { @class = "smart-form client-form" }))
+                {
+                    @*<form action="@Url.Action("PageSecurity", "UserAccount")" method="POST" id="smart-form-register" class="smart-form client-form">*@
+                    <header>
+                        Security Setting
+                    </header>
+                    if (!string.IsNullOrEmpty(Convert.ToString(TempData["Message"])))
+                    {
+                        <div class="alert bg-success alert-block">
+                            <button class="close" data-dismiss="alert" aria-hidden="true">×</button><div class="validation-summary-errors">
+                                @TempData["Message"]
+                            </div>
+                        </div>
+                    }
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationBootstrap()
+
+                    <fieldset>
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <div class="form-group">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <div class="form-group">
+                                <section>
+                                    <label class="select">
+                                        @Html.DropDownListFor(model => model.PageId, ViewBag.PageList as List<SelectListItem>)<i></i>
+                                    </label>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <div class="form-group">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="form-group">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <table width="100%">
+                                    <thead>
+                                        <tr><th>Role</th><th>Edit</th><th>View</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        @{int i = 0;
+                                            int SecurtiyId = 0;
+                                            bool PageEdit = false;
+                                            bool PageView = false;
+                                            string Role = "";
+                                        }
+                                        @foreach (var item in ViewBag.RoleList)
+                                        {
+                                            SecurtiyId = Convert.ToInt32(item.SecurityLevelID);
+                                            PageEdit = Convert.ToBoolean(item.PageEdit);
+                                            PageView = Convert.ToBoolean(item.PageView);
+                                            Role = item.SecurityLevelName + " " + item.UserType.UserTypeName;
+                                            <tr>
+                                                <td>
+                                                    @Role
+                                                    @Html.Hidden("SecurityLevelID_" + i, SecurtiyId)
+                                                </td>
+                                                <td>
+
+                                                    @if (item.PageEdit == true)
+                                                    {
+                                                        @Html.CheckBox("ChkEdit_" + @i, new { @checked = "checked" })
+                                                        @Html.Hidden("hdn_Edit" + i, PageEdit)
+                                                    }
+                                                    else
+                                                    {
+                                                        @Html.CheckBox("ChkEdit_" + @i)
+                                                        @Html.Hidden("hdn_Edit" + i, PageEdit)
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (item.PageView == true)
+                                                    {
+                                                        @Html.CheckBox("ChkView_" + @i, new { @checked = "checked" })
+                                                        @Html.Hidden("hdn_View" + i, PageView)
+                                                    }
+                                                    else
+                                                    {
+                                                        @Html.CheckBox("ChkView_" + @i)
+                                                        @Html.Hidden("hdn_View" + i, PageView)
+                                                    }
+                                                </td>
+
+                                            </tr>
+                                            i++;
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+                    <footer>
+
+                        <div class="col-xs-12 col-sm-9 col-md-9">
+                            <div class="form-group">
+                                </div>
+                            </div>
+                                <div class="col-xs-12 col-sm-11 col-md-11">
+                                    <div class="form-group">
+                                        <button class="btn btn-primary" type="submit">
+                                            SAVE  &nbsp;&nbsp;&nbsp;&nbsp;
+                                        </button>
+                                    </div>
+                                   
+                                      <div class="form-group">
+                                        <a class="btn btn-primary" style="color:white;" href="@Url.Action("RegistrationList", "UserAccount")">Cancel &nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                    </div>
+                                </div>
+
+                    </footer>
+                    <div class="message">
+                        <i class="fa fa-check"></i>
+                        <p>
+                            Thank you for your registration!
+                        </p>
+                    </div>
+
+                                            }
+            </div>
+        </div>
+    </div>
+</div>
+@section pagespecific{
+    <script type="text/javascript">
+        // Model i agree button
+        $("#i-agree").click(function () {
+            var $this = $("#terms");
+            if ($this.checked) {
+                $('#myModal').modal('toggle');
+            } else {
+                $this.prop('checked', true);
+                $('#myModal').modal('toggle');
+            }
+        });
+        function onChangeId() {
+            jQuery.ajax({
+                url: '@Url.Action("GetListByPageId", "UserAccount")',
+                type: 'POST',
+                contentType: 'application/json',
+                data: { PageId=$("#PageId").val() },
+            success: function (result) { }
+        });
+    }
+        // Validation
+        $(function () {
+            // Validation
+            $("#smart-form-register").validate({
+                // Rules for form validation
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    emailConfirm: {
+                        required: true,
+                        email: true,
+                        equalTo: '#email'
+                    },
+                    password: {
+                        required: true,
+                        minlength: 4,
+                        maxlength: 20
+                    },
+                    passwordConfirm: {
+                        required: true,
+                        minlength: 4,
+                        maxlength: 20,
+                        equalTo: '#password'
+                    },
+                    firstname: {
+                        required: false
+                    },
+                    lastname: {
+                        required: false
+                    },
+                    gender: {
+                        required: false
+                    },
+                    terms: {
+                        required: true
+                    }
+                },
+
+                // Messages for form validation
+                messages: {
+                    email: {
+                        required: 'Please enter your email address',
+                        email: 'Please enter a VALID email address'
+                    },
+                    emailConfirm: {
+                        required: 'Please enter your email address one more time',
+                        email: 'Please enter a VALID email address',
+                        equalTo: 'Please enter the same email address as above'
+                    },
+                    password: {
+                        required: 'Please enter your password'
+                    },
+                    passwordConfirm: {
+                        required: 'Please enter your password one more time',
+                        equalTo: 'Please enter the same password as above'
+                    },
+                    terms: {
+                        required: 'You must agree with Terms and Conditions'
+                    }
+                },
+
+                // Do not change code below
+                errorPlacement: function (error, element) {
+                    error.insertAfter(element.parent());
+                }
+            });
+        });
+    </script>
+}

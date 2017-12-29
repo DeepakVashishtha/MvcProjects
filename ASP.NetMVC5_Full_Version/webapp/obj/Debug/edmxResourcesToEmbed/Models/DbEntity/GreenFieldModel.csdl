@@ -1,0 +1,1360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GreenFieldModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FarmFieldPlants" Relationship="Self.FK_FarmFieldPlants_Categories" FromRole="Categories" ToRole="FarmFieldPlants" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Products_Categories" FromRole="Categories" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="FarmFieldPlantHarvestDataDetail">
+    <Key>
+      <PropertyRef Name="FarmFieldPlantHarvestDataDetailID" />
+    </Key>
+    <Property Name="FarmFieldPlantHarvestDataDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FarmFieldPlantHarvestDataID" Type="Int32" Nullable="false" />
+    <Property Name="ContainerIDNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FarmFieldPlantHarvestData" Relationship="Self.FK_FarmFieldPlantHarvestDataDetail_FarmFieldPlantHarvestDatas" FromRole="FarmFieldPlantHarvestDataDetail" ToRole="FarmFieldPlantHarvestDatas" />
+  </EntityType>
+  <EntityType Name="FarmFieldPlantHarvestData">
+    <Key>
+      <PropertyRef Name="FarmFieldPlantHarvestDataID" />
+    </Key>
+    <Property Name="FarmFieldPlantHarvestDataID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FarmFieldPlantID" Type="Int32" Nullable="false" />
+    <Property Name="HarvestDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="WeightTicketNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TotalPoundsIn" Type="Double" />
+    <Property Name="TotalContainers" Type="Int32" />
+    <Property Name="AverageWeightPerContainer" Type="Double" />
+    <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="FarmFieldPlantHarvestDataDetails" Relationship="Self.FK_FarmFieldPlantHarvestDataDetail_FarmFieldPlantHarvestDatas" FromRole="FarmFieldPlantHarvestDatas" ToRole="FarmFieldPlantHarvestDataDetail" />
+    <NavigationProperty Name="FarmFieldPlant" Relationship="Self.FK_FarmFieldPlantHarvestDatas_FarmFieldPlants" FromRole="FarmFieldPlantHarvestDatas" ToRole="FarmFieldPlants" />
+  </EntityType>
+  <EntityType Name="FarmFieldPlant">
+    <Key>
+      <PropertyRef Name="FarmFieldPlantID" />
+    </Key>
+    <Property Name="FarmFieldPlantID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FarmFieldID" Type="Int32" Nullable="false" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="ProduceIDNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DatePlanted" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LotNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ScheduledHarvestDate" Type="DateTime" Precision="3" />
+    <Property Name="TotalPoundsHarvested" Type="Double" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_FarmFieldPlants_Categories" FromRole="FarmFieldPlants" ToRole="Categories" />
+    <NavigationProperty Name="FarmFieldPlantHarvestDatas" Relationship="Self.FK_FarmFieldPlantHarvestDatas_FarmFieldPlants" FromRole="FarmFieldPlants" ToRole="FarmFieldPlantHarvestDatas" />
+    <NavigationProperty Name="FarmField" Relationship="Self.FK_FarmFieldPlants_FarmFields" FromRole="FarmFieldPlants" ToRole="FarmFields" />
+  </EntityType>
+  <EntityType Name="FarmField">
+    <Key>
+      <PropertyRef Name="FarmFieldID" />
+    </Key>
+    <Property Name="FarmFieldID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FieldIDNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FieldName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="LegalDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="TotalAcres" Type="Double" />
+    <Property Name="IrrigationSource1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IrrigationSource2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IrrigationSource3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="FarmFieldPlants" Relationship="Self.FK_FarmFieldPlants_FarmFields" FromRole="FarmFields" ToRole="FarmFieldPlants" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK_FarmFields_Suppliers" FromRole="FarmFields" ToRole="Suppliers" />
+  </EntityType>
+  <EntityType Name="PageDetail">
+    <Key>
+      <PropertyRef Name="PageId" />
+    </Key>
+    <Property Name="PageId" Type="Int32" Nullable="false" />
+    <Property Name="PageName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SecurityLevels" Relationship="Self.FK_SecurityLevels_PageDetail" FromRole="PageDetails" ToRole="SecurityLevels" />
+  </EntityType>
+  <EntityType Name="Pesticide">
+    <Key>
+      <PropertyRef Name="PesticideID" />
+    </Key>
+    <Property Name="PesticideID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PesticideName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RatesListedPer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RestrictedUseData" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RestrictedEntryLevelData" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PesticideLabelSignalWord" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="WPSOralNotification" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Toxicity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Formulation" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ActiveIndegrident" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EPARegistrationNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RestrictedEntryInterval" Type="Int32" />
+    <Property Name="ProductRate" Type="Double" />
+    <Property Name="TotalProductConsumed" Type="Double" />
+    <Property Name="ApplicatorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CertificationNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Speed" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MPH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GPA" Type="Double" />
+    <Property Name="Concentration" Type="Double" />
+    <Property Name="SprayRig" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NozzelSetup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SprayingInstructions" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProductMeasurementTypeID" Type="Int32" />
+    <NavigationProperty Name="ProductMeasurementType" Relationship="Self.FK_Pesticides_ProductMeasurementTypes" FromRole="Pesticides" ToRole="ProductMeasurementTypes" />
+  </EntityType>
+  <EntityType Name="Pest">
+    <Key>
+      <PropertyRef Name="PestID" />
+    </Key>
+    <Property Name="PestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PestName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ProductMeasurementType">
+    <Key>
+      <PropertyRef Name="ProductMeasurementTypeID" />
+    </Key>
+    <Property Name="ProductMeasurementTypeID" Type="Int32" Nullable="false" />
+    <Property Name="ProductMeasurementTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Pesticides" Relationship="Self.FK_Pesticides_ProductMeasurementTypes" FromRole="ProductMeasurementTypes" ToRole="Pesticides" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="QuantityPerPallet" Type="Int32" />
+    <Property Name="PalletType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Discontinued" Type="Boolean" />
+    <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FieldNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LotNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WarehouseLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SKU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="productBarCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="RetailUPCCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductWeight" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="VendorUCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductTypeID" Type="Int32" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
+    <NavigationProperty Name="ProductType" Relationship="Self.FK_Products_ProductTypes" FromRole="Products" ToRole="ProductTypes" />
+  </EntityType>
+  <EntityType Name="ProductType">
+    <Key>
+      <PropertyRef Name="ProductTypeID" />
+    </Key>
+    <Property Name="ProductTypeID" Type="Int32" Nullable="false" />
+    <Property Name="ProductTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Products_ProductTypes" FromRole="ProductTypes" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="PTIHeader">
+    <Key>
+      <PropertyRef Name="PTISerialID" />
+    </Key>
+    <Property Name="PTISerialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FarmFieldPlantID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedByID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SecurityLevel">
+    <Key>
+      <PropertyRef Name="SecurityLevelID" />
+    </Key>
+    <Property Name="SecurityLevelID" Type="Int32" Nullable="false" />
+    <Property Name="SecurityLevelName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserTypeID" Type="Int32" Nullable="false" />
+    <Property Name="PageEdit" Type="Boolean" Nullable="false" />
+    <Property Name="PageView" Type="Boolean" Nullable="false" />
+    <Property Name="PageDelete" Type="Boolean" Nullable="false" />
+    <Property Name="PageId" Type="Int32" />
+    <NavigationProperty Name="PageDetail" Relationship="Self.FK_SecurityLevels_PageDetail" FromRole="SecurityLevels" ToRole="PageDetails" />
+    <NavigationProperty Name="Users" Relationship="Self.SecurityLevels_Users_FK1" FromRole="SecurityLevels" ToRole="Users" />
+    <NavigationProperty Name="UserType" Relationship="Self.UserTypes_SecurityLevels_FK1" FromRole="SecurityLevels" ToRole="UserTypes" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContactName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ContactTitle" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Region" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="HomePage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyUCCprefix" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FarmFields" Relationship="Self.FK_FarmFields_Suppliers" FromRole="Suppliers" ToRole="FarmFields" />
+  </EntityType>
+  <EntityType Name="Supply">
+    <Key>
+      <PropertyRef Name="SupplyID" />
+    </Key>
+    <Property Name="SupplyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SupplyType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UnitOfMeasure" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VendorID" Type="Int32" />
+    <Property Name="NotificationLevel" Type="Int32" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoginName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserTypeID" Type="Int32" Nullable="false" />
+    <Property Name="ReferenceID" Type="Int32" />
+    <Property Name="SecurityLevelID" Type="Int32" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="TitleOfCourtesy" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="BirthDate" Type="DateTime" Precision="3" />
+    <Property Name="HireDate" Type="DateTime" Precision="3" />
+    <Property Name="Address" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Region" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="HomePhone" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="Extension" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReportsTo" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="SecurityLevel" Relationship="Self.SecurityLevels_Users_FK1" FromRole="Users" ToRole="SecurityLevels" />
+    <NavigationProperty Name="UserType" Relationship="Self.UserTypes_Users_FK1" FromRole="Users" ToRole="UserTypes" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="UserTypeID" />
+    </Key>
+    <Property Name="UserTypeID" Type="Int32" Nullable="false" />
+    <Property Name="UserTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="SecurityLevels" Relationship="Self.UserTypes_SecurityLevels_FK1" FromRole="UserTypes" ToRole="SecurityLevels" />
+    <NavigationProperty Name="Users" Relationship="Self.UserTypes_Users_FK1" FromRole="UserTypes" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmFieldPlants_Categories">
+    <End Role="Categories" Type="Self.Category" Multiplicity="1" />
+    <End Role="FarmFieldPlants" Type="Self.FarmFieldPlant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="FarmFieldPlants">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Categories">
+    <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmFieldPlantHarvestDataDetail_FarmFieldPlantHarvestDatas">
+    <End Role="FarmFieldPlantHarvestDatas" Type="Self.FarmFieldPlantHarvestData" Multiplicity="1" />
+    <End Role="FarmFieldPlantHarvestDataDetail" Type="Self.FarmFieldPlantHarvestDataDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FarmFieldPlantHarvestDatas">
+        <PropertyRef Name="FarmFieldPlantHarvestDataID" />
+      </Principal>
+      <Dependent Role="FarmFieldPlantHarvestDataDetail">
+        <PropertyRef Name="FarmFieldPlantHarvestDataID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmFieldPlantHarvestDatas_FarmFieldPlants">
+    <End Role="FarmFieldPlants" Type="Self.FarmFieldPlant" Multiplicity="1" />
+    <End Role="FarmFieldPlantHarvestDatas" Type="Self.FarmFieldPlantHarvestData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FarmFieldPlants">
+        <PropertyRef Name="FarmFieldPlantID" />
+      </Principal>
+      <Dependent Role="FarmFieldPlantHarvestDatas">
+        <PropertyRef Name="FarmFieldPlantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmFieldPlants_FarmFields">
+    <End Role="FarmFields" Type="Self.FarmField" Multiplicity="1" />
+    <End Role="FarmFieldPlants" Type="Self.FarmFieldPlant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FarmFields">
+        <PropertyRef Name="FarmFieldID" />
+      </Principal>
+      <Dependent Role="FarmFieldPlants">
+        <PropertyRef Name="FarmFieldID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmFields_Suppliers">
+    <End Role="Suppliers" Type="Self.Supplier" Multiplicity="1" />
+    <End Role="FarmFields" Type="Self.FarmField" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="FarmFields">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SecurityLevels_PageDetail">
+    <End Role="PageDetails" Type="Self.PageDetail" Multiplicity="0..1" />
+    <End Role="SecurityLevels" Type="Self.SecurityLevel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PageDetails">
+        <PropertyRef Name="PageId" />
+      </Principal>
+      <Dependent Role="SecurityLevels">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pesticides_ProductMeasurementTypes">
+    <End Role="ProductMeasurementTypes" Type="Self.ProductMeasurementType" Multiplicity="0..1" />
+    <End Role="Pesticides" Type="Self.Pesticide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductMeasurementTypes">
+        <PropertyRef Name="ProductMeasurementTypeID" />
+      </Principal>
+      <Dependent Role="Pesticides">
+        <PropertyRef Name="ProductMeasurementTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_ProductTypes">
+    <End Role="ProductTypes" Type="Self.ProductType" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductTypes">
+        <PropertyRef Name="ProductTypeID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="ProductTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SecurityLevels_Users_FK1">
+    <End Role="SecurityLevels" Type="Self.SecurityLevel" Multiplicity="1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SecurityLevels">
+        <PropertyRef Name="SecurityLevelID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="SecurityLevelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserTypes_SecurityLevels_FK1">
+    <End Role="UserTypes" Type="Self.UserType" Multiplicity="1" />
+    <End Role="SecurityLevels" Type="Self.SecurityLevel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTypes">
+        <PropertyRef Name="UserTypeID" />
+      </Principal>
+      <Dependent Role="SecurityLevels">
+        <PropertyRef Name="UserTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserTypes_Users_FK1">
+    <End Role="UserTypes" Type="Self.UserType" Multiplicity="1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTypes">
+        <PropertyRef Name="UserTypeID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="UserTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="GreenFieldEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="FarmFieldPlantHarvestDataDetails" EntityType="Self.FarmFieldPlantHarvestDataDetail" />
+    <EntitySet Name="FarmFieldPlantHarvestDatas" EntityType="Self.FarmFieldPlantHarvestData" />
+    <EntitySet Name="FarmFieldPlants" EntityType="Self.FarmFieldPlant" />
+    <EntitySet Name="FarmFields" EntityType="Self.FarmField" />
+    <EntitySet Name="PageDetails" EntityType="Self.PageDetail" />
+    <EntitySet Name="Pesticides" EntityType="Self.Pesticide" />
+    <EntitySet Name="Pests" EntityType="Self.Pest" />
+    <EntitySet Name="ProductMeasurementTypes" EntityType="Self.ProductMeasurementType" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="ProductTypes" EntityType="Self.ProductType" />
+    <EntitySet Name="PTIHeaders" EntityType="Self.PTIHeader" />
+    <EntitySet Name="SecurityLevels" EntityType="Self.SecurityLevel" />
+    <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+    <EntitySet Name="Supplies" EntityType="Self.Supply" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UserTypes" EntityType="Self.UserType" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmFieldPlants_Categories" Association="Self.FK_FarmFieldPlants_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="FarmFieldPlants" EntitySet="FarmFieldPlants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmFieldPlantHarvestDataDetail_FarmFieldPlantHarvestDatas" Association="Self.FK_FarmFieldPlantHarvestDataDetail_FarmFieldPlantHarvestDatas">
+      <End Role="FarmFieldPlantHarvestDatas" EntitySet="FarmFieldPlantHarvestDatas" />
+      <End Role="FarmFieldPlantHarvestDataDetail" EntitySet="FarmFieldPlantHarvestDataDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmFieldPlantHarvestDatas_FarmFieldPlants" Association="Self.FK_FarmFieldPlantHarvestDatas_FarmFieldPlants">
+      <End Role="FarmFieldPlants" EntitySet="FarmFieldPlants" />
+      <End Role="FarmFieldPlantHarvestDatas" EntitySet="FarmFieldPlantHarvestDatas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmFieldPlants_FarmFields" Association="Self.FK_FarmFieldPlants_FarmFields">
+      <End Role="FarmFields" EntitySet="FarmFields" />
+      <End Role="FarmFieldPlants" EntitySet="FarmFieldPlants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmFields_Suppliers" Association="Self.FK_FarmFields_Suppliers">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="FarmFields" EntitySet="FarmFields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SecurityLevels_PageDetail" Association="Self.FK_SecurityLevels_PageDetail">
+      <End Role="PageDetails" EntitySet="PageDetails" />
+      <End Role="SecurityLevels" EntitySet="SecurityLevels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pesticides_ProductMeasurementTypes" Association="Self.FK_Pesticides_ProductMeasurementTypes">
+      <End Role="ProductMeasurementTypes" EntitySet="ProductMeasurementTypes" />
+      <End Role="Pesticides" EntitySet="Pesticides" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_ProductTypes" Association="Self.FK_Products_ProductTypes">
+      <End Role="ProductTypes" EntitySet="ProductTypes" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="SecurityLevels_Users_FK1" Association="Self.SecurityLevels_Users_FK1">
+      <End Role="SecurityLevels" EntitySet="SecurityLevels" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="UserTypes_SecurityLevels_FK1" Association="Self.UserTypes_SecurityLevels_FK1">
+      <End Role="UserTypes" EntitySet="UserTypes" />
+      <End Role="SecurityLevels" EntitySet="SecurityLevels" />
+    </AssociationSet>
+    <AssociationSet Name="UserTypes_Users_FK1" Association="Self.UserTypes_Users_FK1">
+      <End Role="UserTypes" EntitySet="UserTypes" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <FunctionImport Name="USP_Categories_All" ReturnType="Collection(GreenFieldModel.USP_Categories_All_Result)" />
+    <FunctionImport Name="USP_Categories_Delete">
+      <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Categories_Get" ReturnType="Collection(GreenFieldModel.USP_Categories_Get_Result)">
+      <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Categories_Insert">
+      <Parameter Name="CategoryName" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="CategoryID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Categories_Update">
+      <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+      <Parameter Name="CategoryName" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_FarmDashboard_ByCategory" ReturnType="Collection(GreenFieldModel.USP_FarmDashboard_ByCategory_Result)">
+      <Parameter Name="year" Mode="In" Type="String" />
+      <Parameter Name="Month" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_FarmDashboard_ByLot" ReturnType="Collection(GreenFieldModel.USP_FarmDashboard_ByLot_Result)">
+      <Parameter Name="year" Mode="In" Type="String" />
+      <Parameter Name="Month" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_FarmDashboard_ByStages" ReturnType="Collection(GreenFieldModel.USP_FarmDashboard_ByStages_Result)" />
+    <FunctionImport Name="USP_FarmDashboard_HF" ReturnType="Collection(GreenFieldModel.USP_FarmDashboard_HF_Result)" />
+    <FunctionImport Name="USP_FarmDashboard_Raw" ReturnType="Collection(GreenFieldModel.USP_FarmDashboard_Raw_Result)">
+      <Parameter Name="year" Mode="In" Type="String" />
+      <Parameter Name="Month" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_FarmDashboard_Summary" ReturnType="Collection(GreenFieldModel.USP_FarmDashboard_Summary_Result)" />
+    <FunctionImport Name="USP_FarmFields_All" ReturnType="Collection(GreenFieldModel.USP_FarmFields_All_Result)" />
+    <FunctionImport Name="USP_FarmFields_Delete">
+      <Parameter Name="FarmFieldID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_FarmFields_Get" ReturnType="Collection(GreenFieldModel.USP_FarmFields_Get_Result)">
+      <Parameter Name="FarmFieldID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_FarmFields_Insert">
+      <Parameter Name="FieldIDNumber" Mode="In" Type="String" />
+      <Parameter Name="FieldName" Mode="In" Type="String" />
+      <Parameter Name="SupplierID" Mode="In" Type="Int32" />
+      <Parameter Name="LegalDescription" Mode="In" Type="String" />
+      <Parameter Name="TotalAcres" Mode="In" Type="Double" />
+      <Parameter Name="IrrigationSource1" Mode="In" Type="String" />
+      <Parameter Name="IrrigationSource2" Mode="In" Type="String" />
+      <Parameter Name="IrrigationSource3" Mode="In" Type="String" />
+      <Parameter Name="Comments" Mode="In" Type="String" />
+      <Parameter Name="FarmFieldID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_FarmFields_Update">
+      <Parameter Name="FarmFieldID" Mode="In" Type="Int32" />
+      <Parameter Name="FieldIDNumber" Mode="In" Type="String" />
+      <Parameter Name="FieldName" Mode="In" Type="String" />
+      <Parameter Name="SupplierID" Mode="In" Type="Int32" />
+      <Parameter Name="LegalDescription" Mode="In" Type="String" />
+      <Parameter Name="TotalAcres" Mode="In" Type="Double" />
+      <Parameter Name="IrrigationSource1" Mode="In" Type="String" />
+      <Parameter Name="IrrigationSource2" Mode="In" Type="String" />
+      <Parameter Name="IrrigationSource3" Mode="In" Type="String" />
+      <Parameter Name="Comments" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GETROLE" ReturnType="Collection(GreenFieldModel.USP_GETROLE_Result)" />
+    <FunctionImport Name="USP_PageDetails_All" ReturnType="Collection(GreenFieldModel.USP_PageDetails_All_Result)" />
+    <FunctionImport Name="USP_Pesticides_All" ReturnType="Collection(GreenFieldModel.USP_Pesticides_All_Result)" />
+    <FunctionImport Name="USP_Pesticides_Delete">
+      <Parameter Name="PesticideID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Pesticides_Get" ReturnType="Collection(GreenFieldModel.USP_Pesticides_Get_Result)">
+      <Parameter Name="PesticideID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Pesticides_Insert">
+      <Parameter Name="PesticideName" Mode="In" Type="String" />
+      <Parameter Name="RatesListedPer" Mode="In" Type="String" />
+      <Parameter Name="RestrictedUseData" Mode="In" Type="String" />
+      <Parameter Name="RestrictedEntryLevelData" Mode="In" Type="String" />
+      <Parameter Name="PesticideLabelSignalWord" Mode="In" Type="String" />
+      <Parameter Name="WPSOralNotification" Mode="In" Type="String" />
+      <Parameter Name="Toxicity" Mode="In" Type="String" />
+      <Parameter Name="Formulation" Mode="In" Type="String" />
+      <Parameter Name="ActiveIndegrident" Mode="In" Type="String" />
+      <Parameter Name="EPARegistrationNumber" Mode="In" Type="String" />
+      <Parameter Name="RestrictedEntryInterval" Mode="In" Type="Int32" />
+      <Parameter Name="ProductRate" Mode="In" Type="Double" />
+      <Parameter Name="ProductMeasurementTypeID" Mode="In" Type="Int32" />
+      <Parameter Name="TotalProductConsumed" Mode="In" Type="Double" />
+      <Parameter Name="ApplicatorName" Mode="In" Type="String" />
+      <Parameter Name="CertificationNumber" Mode="In" Type="String" />
+      <Parameter Name="Speed" Mode="In" Type="String" />
+      <Parameter Name="MPH" Mode="In" Type="String" />
+      <Parameter Name="GPA" Mode="In" Type="Double" />
+      <Parameter Name="Concentration" Mode="In" Type="Double" />
+      <Parameter Name="SprayRig" Mode="In" Type="String" />
+      <Parameter Name="NozzelSetup" Mode="In" Type="String" />
+      <Parameter Name="SprayingInstructions" Mode="In" Type="String" />
+      <Parameter Name="PesticideID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Pesticides_Update">
+      <Parameter Name="PesticideID" Mode="In" Type="Int32" />
+      <Parameter Name="PesticideName" Mode="In" Type="String" />
+      <Parameter Name="RatesListedPer" Mode="In" Type="String" />
+      <Parameter Name="RestrictedUseData" Mode="In" Type="String" />
+      <Parameter Name="RestrictedEntryLevelData" Mode="In" Type="String" />
+      <Parameter Name="PesticideLabelSignalWord" Mode="In" Type="String" />
+      <Parameter Name="WPSOralNotification" Mode="In" Type="String" />
+      <Parameter Name="Formulation" Mode="In" Type="String" />
+      <Parameter Name="ActiveIndegrident" Mode="In" Type="String" />
+      <Parameter Name="EPARegistrationNumber" Mode="In" Type="String" />
+      <Parameter Name="RestrictedEntryInterval" Mode="In" Type="Int32" />
+      <Parameter Name="ProductRate" Mode="In" Type="Double" />
+      <Parameter Name="ProductMeasurementTypeID" Mode="In" Type="Int32" />
+      <Parameter Name="TotalProductConsumed" Mode="In" Type="Double" />
+      <Parameter Name="ApplicatorName" Mode="In" Type="String" />
+      <Parameter Name="CertificationNumber" Mode="In" Type="String" />
+      <Parameter Name="Speed" Mode="In" Type="String" />
+      <Parameter Name="MPH" Mode="In" Type="String" />
+      <Parameter Name="GPA" Mode="In" Type="Double" />
+      <Parameter Name="Concentration" Mode="In" Type="Double" />
+      <Parameter Name="SprayRig" Mode="In" Type="String" />
+      <Parameter Name="NozzelSetup" Mode="In" Type="String" />
+      <Parameter Name="SprayingInstructions" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Pests_All" ReturnType="Collection(GreenFieldModel.USP_Pests_All_Result)" />
+    <FunctionImport Name="USP_Pests_Delete">
+      <Parameter Name="PestID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Pests_Get" ReturnType="Collection(GreenFieldModel.USP_Pests_Get_Result)">
+      <Parameter Name="PestID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Pests_Insert">
+      <Parameter Name="PestName" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="PestID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Pests_Update">
+      <Parameter Name="PestID" Mode="In" Type="Int32" />
+      <Parameter Name="PestName" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_ProductMeasurementTypes_All" ReturnType="Collection(GreenFieldModel.USP_ProductMeasurementTypes_All_Result)" />
+    <FunctionImport Name="USP_ProductMeasurementTypes_Delete">
+      <Parameter Name="ProductMeasurementTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_ProductMeasurementTypes_Get" ReturnType="Collection(GreenFieldModel.USP_ProductMeasurementTypes_Get_Result)">
+      <Parameter Name="ProductMeasurementTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_ProductMeasurementTypes_Insert">
+      <Parameter Name="ProductMeasurementTypeName" Mode="In" Type="String" />
+      <Parameter Name="ProductMeasurementTypeID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_ProductMeasurementTypes_Update">
+      <Parameter Name="ProductMeasurementTypeID" Mode="In" Type="Int32" />
+      <Parameter Name="ProductMeasurementTypeName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_PTI_LotBySupplierID" ReturnType="Collection(GreenFieldModel.USP_PTI_LotBySupplierID_Result)">
+      <Parameter Name="SupplierID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_PTI_PrintTradeItem" ReturnType="Collection(GreenFieldModel.USP_PTI_PrintTradeItem_Result)">
+      <Parameter Name="PTISerialID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_PTI_ProductItems" ReturnType="Collection(GreenFieldModel.USP_PTI_ProductItems_Result)" />
+    <FunctionImport Name="USP_PTI_SSCCInsert">
+      <Parameter Name="TransactionDate" Mode="In" Type="DateTime" />
+      <Parameter Name="FarmFieldPlantID" Mode="In" Type="Int32" />
+      <Parameter Name="ProductID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="PTISerialID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SecurityLevels_All" ReturnType="Collection(GreenFieldModel.USP_SecurityLevels_All_Result)" />
+    <FunctionImport Name="USP_SecurityLevels_Delete">
+      <Parameter Name="SecurityLevelID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SecurityLevels_Get" ReturnType="Collection(GreenFieldModel.USP_SecurityLevels_Get_Result)">
+      <Parameter Name="SecurityLevelID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SecurityLevels_GetByUserTypeID" ReturnType="Collection(GreenFieldModel.USP_SecurityLevels_GetByUserTypeID_Result)">
+      <Parameter Name="UserTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SecurityLevels_Insert">
+      <Parameter Name="SecurityLevelName" Mode="In" Type="String" />
+      <Parameter Name="UserTypeID" Mode="In" Type="Int32" />
+      <Parameter Name="SecurityLevelID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SecurityLevels_Update">
+      <Parameter Name="SecurityLevelID" Mode="In" Type="Int32" />
+      <Parameter Name="SecurityLevelName" Mode="In" Type="String" />
+      <Parameter Name="UserTypeID" Mode="In" Type="Int32" />
+      <Parameter Name="PageView" Mode="In" Type="Boolean" />
+      <Parameter Name="PageEdit" Mode="In" Type="Boolean" />
+      <Parameter Name="PageId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Suppliers_All" ReturnType="Collection(GreenFieldModel.USP_Suppliers_All_Result)" />
+    <FunctionImport Name="USP_Suppliers_Delete">
+      <Parameter Name="SupplierID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Suppliers_Get" ReturnType="Collection(GreenFieldModel.USP_Suppliers_Get_Result)">
+      <Parameter Name="SupplierID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Suppliers_Insert">
+      <Parameter Name="CompanyName" Mode="In" Type="String" />
+      <Parameter Name="ContactName" Mode="In" Type="String" />
+      <Parameter Name="ContactTitle" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Region" Mode="In" Type="String" />
+      <Parameter Name="PostalCode" Mode="In" Type="String" />
+      <Parameter Name="Country" Mode="In" Type="String" />
+      <Parameter Name="Phone" Mode="In" Type="String" />
+      <Parameter Name="Fax" Mode="In" Type="String" />
+      <Parameter Name="HomePage" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="CompanyUCCprefix" Mode="In" Type="String" />
+      <Parameter Name="SupplierID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Suppliers_Update">
+      <Parameter Name="SupplierID" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyName" Mode="In" Type="String" />
+      <Parameter Name="ContactName" Mode="In" Type="String" />
+      <Parameter Name="ContactTitle" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Region" Mode="In" Type="String" />
+      <Parameter Name="PostalCode" Mode="In" Type="String" />
+      <Parameter Name="Country" Mode="In" Type="String" />
+      <Parameter Name="Phone" Mode="In" Type="String" />
+      <Parameter Name="Fax" Mode="In" Type="String" />
+      <Parameter Name="HomePage" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="CompanyUCCprefix" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_User_Login" ReturnType="Collection(GreenFieldModel.USP_User_Login_Result)">
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Users_All" ReturnType="Collection(GreenFieldModel.USP_Users_All_Result)" />
+    <FunctionImport Name="USP_Users_Delete">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Users_Get" ReturnType="Collection(GreenFieldModel.USP_Users_Get_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Users_GetByReferenceID" ReturnType="Collection(GreenFieldModel.USP_Users_GetByReferenceID_Result)">
+      <Parameter Name="ReferenceID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Users_GetBySecurityLevelAndReference" ReturnType="Collection(GreenFieldModel.USP_Users_GetBySecurityLevelAndReference_Result)">
+      <Parameter Name="SecurityLevelID" Mode="In" Type="Int32" />
+      <Parameter Name="ReferenceID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Users_GetBySecurityLevelID" ReturnType="Collection(GreenFieldModel.USP_Users_GetBySecurityLevelID_Result)">
+      <Parameter Name="SecurityLevelID" Mode="In" Type="Int32" />
+      <Parameter Name="SupplierID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Users_GetByUserTypeID" ReturnType="Collection(GreenFieldModel.USP_Users_GetByUserTypeID_Result)">
+      <Parameter Name="UserTypeID" Mode="In" Type="Int32" />
+      <Parameter Name="SupplierID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Users_Insert">
+      <Parameter Name="LoginName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="UserTypeID" Mode="In" Type="Int32" />
+      <Parameter Name="ReferenceID" Mode="In" Type="Int32" />
+      <Parameter Name="SecurityLevelID" Mode="In" Type="Int32" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="TitleOfCourtesy" Mode="In" Type="String" />
+      <Parameter Name="BirthDate" Mode="In" Type="DateTime" />
+      <Parameter Name="HireDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Region" Mode="In" Type="String" />
+      <Parameter Name="PostalCode" Mode="In" Type="String" />
+      <Parameter Name="Country" Mode="In" Type="String" />
+      <Parameter Name="HomePhone" Mode="In" Type="String" />
+      <Parameter Name="Extension" Mode="In" Type="String" />
+      <Parameter Name="Notes" Mode="In" Type="String" />
+      <Parameter Name="ReportsTo" Mode="In" Type="Int32" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Active" Mode="In" Type="Boolean" />
+      <Parameter Name="UserID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Users_Login" ReturnType="Collection(GreenFieldModel.USP_Users_Login_Result)">
+      <Parameter Name="LoginName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Users_Update">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="LoginName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="UserTypeID" Mode="In" Type="Int32" />
+      <Parameter Name="ReferenceID" Mode="In" Type="Int32" />
+      <Parameter Name="SecurityLevelID" Mode="In" Type="Int32" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="TitleOfCourtesy" Mode="In" Type="String" />
+      <Parameter Name="BirthDate" Mode="In" Type="DateTime" />
+      <Parameter Name="HireDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Region" Mode="In" Type="String" />
+      <Parameter Name="PostalCode" Mode="In" Type="String" />
+      <Parameter Name="Country" Mode="In" Type="String" />
+      <Parameter Name="HomePhone" Mode="In" Type="String" />
+      <Parameter Name="Extension" Mode="In" Type="String" />
+      <Parameter Name="Notes" Mode="In" Type="String" />
+      <Parameter Name="ReportsTo" Mode="In" Type="Int32" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Active" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UserTypes_All" ReturnType="Collection(GreenFieldModel.USP_UserTypes_All_Result)" />
+    <FunctionImport Name="USP_UserTypes_Delete">
+      <Parameter Name="UserTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UserTypes_Get" ReturnType="Collection(GreenFieldModel.USP_UserTypes_Get_Result)">
+      <Parameter Name="UserTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UserTypes_Insert">
+      <Parameter Name="UserTypeName" Mode="In" Type="String" />
+      <Parameter Name="UserTypeID" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UserTypes_Update">
+      <Parameter Name="UserTypeID" Mode="In" Type="Int32" />
+      <Parameter Name="UserTypeName" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="USP_Categories_All_Result">
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="USP_Categories_Get_Result">
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="USP_FarmDashboard_ByCategory_Result">
+    <Property Type="Int32" Name="HarvestYearDate" Nullable="true" />
+    <Property Type="Int32" Name="HarvestMonthDate" Nullable="true" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="TotalPoundsHarvested" Nullable="true" />
+    <Property Type="Int32" Name="TotalPoundsForecast" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_FarmDashboard_ByLot_Result">
+    <Property Type="Int32" Name="HarvestYearDate" Nullable="true" />
+    <Property Type="Int32" Name="HarvestMonthDate" Nullable="true" />
+    <Property Type="String" Name="LotNo" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="TotalPoundsHarvested" Nullable="true" />
+    <Property Type="Int32" Name="TotalPoundsForecast" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_FarmDashboard_ByStages_Result">
+    <Property Type="Int32" Name="HarvestYear" Nullable="true" />
+    <Property Type="String" Name="FarmFieldStatusName" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="NumLotNo" Nullable="true" />
+    <Property Type="Double" Name="NumLotNoPct" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_FarmDashboard_HF_Result">
+    <Property Type="Int32" Name="HarvestYearDate" Nullable="true" />
+    <Property Type="Int32" Name="HarvestMonthDate" Nullable="true" />
+    <Property Type="Double" Name="TotalPoundsHarvested" Nullable="true" />
+    <Property Type="Int32" Name="NumCategoryID" Nullable="true" />
+    <Property Type="Int32" Name="TotalPoundsForecast" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_FarmDashboard_Raw_Result">
+    <Property Type="Int32" Name="FarmFieldPlantID" Nullable="true" />
+    <Property Type="DateTime" Name="DatePlanted" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="CategoryID" Nullable="true" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FieldName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LotNo" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ScheduledHarvestDate" Nullable="true" Precision="23" />
+    <Property Type="Double" Name="TotalPoundsHarvested" Nullable="true" />
+    <Property Type="Int32" Name="TotalPoundsForecast" Nullable="true" />
+    <Property Type="Int32" Name="FarmFieldPlantConditionID" Nullable="true" />
+    <Property Type="String" Name="FarmFieldPlantConditionName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="FarmFieldPlantStatusID" Nullable="true" />
+    <Property Type="String" Name="FarmFieldPlantStatusName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="USP_FarmDashboard_Summary_Result">
+    <Property Type="Int32" Name="YearHarvestDate" Nullable="true" />
+    <Property Type="Int32" Name="TotalNumCategory" Nullable="true" />
+    <Property Type="Int32" Name="NumCategoryHarvest" Nullable="true" />
+    <Property Type="Int32" Name="TotalNumLotNo" Nullable="true" />
+    <Property Type="Int32" Name="NumLotNoHarvest" Nullable="true" />
+    <Property Type="Double" Name="TotalPoundsHarvested" Nullable="true" />
+    <Property Type="Int32" Name="TotalPoundsForecast" Nullable="true" />
+    <Property Type="Double" Name="EstimatedFutureHarvestLeft" Nullable="true" />
+    <Property Type="Double" Name="HarvestedLbsPercentage" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_FarmFields_All_Result">
+    <Property Type="Int32" Name="FarmFieldID" Nullable="false" />
+    <Property Type="String" Name="FieldIDNumber" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="FieldName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="SupplierID" Nullable="false" />
+    <Property Type="String" Name="LegalDescription" Nullable="true" MaxLength="200" />
+    <Property Type="Double" Name="TotalAcres" Nullable="true" />
+    <Property Type="String" Name="IrrigationSource1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IrrigationSource2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IrrigationSource3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Comments" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SupplierName" Nullable="true" MaxLength="40" />
+  </ComplexType>
+  <ComplexType Name="USP_FarmFields_Get_Result">
+    <Property Type="Int32" Name="FarmFieldID" Nullable="false" />
+    <Property Type="String" Name="FieldIDNumber" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="FieldName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="SupplierID" Nullable="false" />
+    <Property Type="String" Name="LegalDescription" Nullable="true" MaxLength="200" />
+    <Property Type="Double" Name="TotalAcres" Nullable="true" />
+    <Property Type="String" Name="IrrigationSource1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IrrigationSource2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IrrigationSource3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Comments" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SupplierName" Nullable="true" MaxLength="40" />
+  </ComplexType>
+  <ComplexType Name="USP_GETROLE_Result">
+    <Property Type="String" Name="UserTypeName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="SecurityLevelName" Nullable="false" MaxLength="100" />
+    <Property Type="Boolean" Name="PageEdit" Nullable="false" />
+    <Property Type="Boolean" Name="PageView" Nullable="false" />
+    <Property Type="Int32" Name="UserTypeID" Nullable="false" />
+    <Property Type="Int32" Name="SecurityLevelID" Nullable="false" />
+    <Property Type="Int32" Name="PageId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_PageDetails_All_Result">
+    <Property Type="Int32" Name="pageId" Nullable="false" />
+    <Property Type="String" Name="PageName" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="USP_Pesticides_All_Result">
+    <Property Type="Int32" Name="PesticideID" Nullable="false" />
+    <Property Type="String" Name="PesticideName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="RatesListedPer" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="RestrictedUseData" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="RestrictedEntryLevelData" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PesticideLabelSignalWord" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="WPSOralNotification" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Toxicity" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Formulation" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ActiveIndegrident" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EPARegistrationNumber" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="RestrictedEntryInterval" Nullable="true" />
+    <Property Type="Double" Name="ProductRate" Nullable="true" />
+    <Property Type="Double" Name="TotalProductConsumed" Nullable="true" />
+    <Property Type="String" Name="ApplicatorName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CertificationNumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Speed" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MPH" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="GPA" Nullable="true" />
+    <Property Type="Double" Name="Concentration" Nullable="true" />
+    <Property Type="String" Name="SprayRig" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NozzelSetup" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SprayingInstructions" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ProductMeasurementTypeID" Nullable="true" />
+    <Property Type="String" Name="ProductMeasurementTypeName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="USP_Pesticides_Get_Result">
+    <Property Type="Int32" Name="PesticideID" Nullable="false" />
+    <Property Type="String" Name="PesticideName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="RatesListedPer" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="RestrictedUseData" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="RestrictedEntryLevelData" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PesticideLabelSignalWord" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="WPSOralNotification" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Formulation" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ActiveIndegrident" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EPARegistrationNumber" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="RestrictedEntryInterval" Nullable="true" />
+    <Property Type="Double" Name="ProductRate" Nullable="true" />
+    <Property Type="Double" Name="TotalProductConsumed" Nullable="true" />
+    <Property Type="String" Name="ApplicatorName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CertificationNumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Speed" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MPH" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="GPA" Nullable="true" />
+    <Property Type="Double" Name="Concentration" Nullable="true" />
+    <Property Type="String" Name="SprayRig" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NozzelSetup" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SprayingInstructions" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ProductMeasurementTypeID" Nullable="true" />
+    <Property Type="String" Name="ProductMeasurementTypeName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="USP_Pests_All_Result">
+    <Property Type="Int32" Name="PestID" Nullable="false" />
+    <Property Type="String" Name="PestName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="USP_Pests_Get_Result">
+    <Property Type="Int32" Name="PestID" Nullable="false" />
+    <Property Type="String" Name="PestName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="USP_ProductMeasurementTypes_All_Result">
+    <Property Type="Int32" Name="ProductMeasurementTypeID" Nullable="false" />
+    <Property Type="String" Name="ProductMeasurementTypeName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="USP_ProductMeasurementTypes_Get_Result">
+    <Property Type="Int32" Name="ProductMeasurementTypeID" Nullable="false" />
+    <Property Type="String" Name="ProductMeasurementTypeName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="USP_PTI_LotBySupplierID_Result">
+    <Property Type="Int32" Name="FarmFieldPlantID" Nullable="false" />
+    <Property Type="String" Name="LotNo" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="USP_PTI_PrintTradeItem_Result">
+    <Property Type="DateTime" Name="TransactionDate" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="PTISerialID" Nullable="false" />
+    <Property Type="String" Name="BarcodeEAN128" Nullable="true" MaxLength="309" />
+    <Property Type="String" Name="BarcodeEAN128Label" Nullable="true" MaxLength="313" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Size" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Brand" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="GTIN" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="LotNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="PostalCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="USP_PTI_ProductItems_Result">
+    <Property Type="Int32" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="USP_SecurityLevels_All_Result">
+    <Property Type="Int32" Name="SecurityLevelID" Nullable="false" />
+    <Property Type="String" Name="SecurityLevelName" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="UserTypeID" Nullable="false" />
+    <Property Type="String" Name="UserTypeName" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="PageEdit" Nullable="false" />
+    <Property Type="Boolean" Name="PageView" Nullable="false" />
+    <Property Type="Int32" Name="PageId" Nullable="true" />
+    <Property Type="String" Name="PageName" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="USP_SecurityLevels_Get_Result">
+    <Property Type="Int32" Name="SecurityLevelID" Nullable="false" />
+    <Property Type="String" Name="SecurityLevelName" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="UserTypeID" Nullable="false" />
+    <Property Type="String" Name="UserTypeName" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="USP_SecurityLevels_GetByUserTypeID_Result">
+    <Property Type="Int32" Name="SecurityLevelID" Nullable="false" />
+    <Property Type="String" Name="SecurityLevelName" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="UserTypeID" Nullable="false" />
+    <Property Type="String" Name="UserTypeName" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="USP_Suppliers_All_Result">
+    <Property Type="Int32" Name="SupplierID" Nullable="false" />
+    <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="ContactName" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ContactTitle" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="PostalCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Fax" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="HomePage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="CompanyUCCprefix" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="USP_Suppliers_Get_Result">
+    <Property Type="Int32" Name="SupplierID" Nullable="false" />
+    <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="ContactName" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ContactTitle" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="PostalCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Fax" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="HomePage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="CompanyUCCprefix" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="USP_User_Login_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="Int32" Name="UserTypeID" Nullable="false" />
+    <Property Type="Int32" Name="SecurityLevelID" Nullable="false" />
+    <Property Type="String" Name="SecurityLevelName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="UserTypeName" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="PageId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_Users_All_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="LoginName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="UserTypeID" Nullable="false" />
+    <Property Type="String" Name="UserTypeName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="ReferenceID" Nullable="true" />
+    <Property Type="String" Name="ReferenceName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="SecurityLevelID" Nullable="false" />
+    <Property Type="String" Name="SecurityLevelName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="TitleOfCourtesy" Nullable="true" MaxLength="25" />
+    <Property Type="DateTime" Name="BirthDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="HireDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="PostalCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="HomePhone" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Extension" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="Notes" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="ReportsTo" Nullable="true" />
+    <Property Type="String" Name="ReportsToName" Nullable="true" MaxLength="31" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="Active" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_Users_Get_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="LoginName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="UserTypeID" Nullable="false" />
+    <Property Type="String" Name="UserTypeName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="ReferenceID" Nullable="true" />
+    <Property Type="String" Name="ReferenceName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="SecurityLevelID" Nullable="false" />
+    <Property Type="String" Name="SecurityLevelName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="TitleOfCourtesy" Nullable="true" MaxLength="25" />
+    <Property Type="DateTime" Name="BirthDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="HireDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="PostalCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="HomePhone" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Extension" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="Notes" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="ReportsTo" Nullable="true" />
+    <Property Type="String" Name="ReportsToName" Nullable="true" MaxLength="31" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="Active" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_Users_GetByReferenceID_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="LoginName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="UserTypeID" Nullable="false" />
+    <Property Type="String" Name="UserTypeName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="ReferenceID" Nullable="true" />
+    <Property Type="String" Name="ReferenceName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="SecurityLevelID" Nullable="false" />
+    <Property Type="String" Name="SecurityLevelName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="TitleOfCourtesy" Nullable="true" MaxLength="25" />
+    <Property Type="DateTime" Name="BirthDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="HireDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="PostalCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="HomePhone" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Extension" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="Notes" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="ReportsTo" Nullable="true" />
+    <Property Type="String" Name="ReportsToName" Nullable="true" MaxLength="31" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="Active" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_Users_GetBySecurityLevelAndReference_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="LoginName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="UserTypeID" Nullable="false" />
+    <Property Type="String" Name="UserTypeName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="ReferenceID" Nullable="true" />
+    <Property Type="String" Name="ReferenceName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="SecurityLevelID" Nullable="false" />
+    <Property Type="String" Name="SecurityLevelName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="TitleOfCourtesy" Nullable="true" MaxLength="25" />
+    <Property Type="DateTime" Name="BirthDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="HireDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="PostalCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="HomePhone" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Extension" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="Notes" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="ReportsTo" Nullable="true" />
+    <Property Type="String" Name="ReportsToName" Nullable="true" MaxLength="31" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="Active" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_Users_GetBySecurityLevelID_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="LoginName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="UserTypeID" Nullable="false" />
+    <Property Type="String" Name="UserTypeName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="ReferenceID" Nullable="true" />
+    <Property Type="String" Name="ReferenceName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="SecurityLevelID" Nullable="false" />
+    <Property Type="String" Name="SecurityLevelName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="TitleOfCourtesy" Nullable="true" MaxLength="25" />
+    <Property Type="DateTime" Name="BirthDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="HireDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="PostalCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="HomePhone" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Extension" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="Notes" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="ReportsTo" Nullable="true" />
+    <Property Type="String" Name="ReportsToName" Nullable="true" MaxLength="31" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="Active" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_Users_GetByUserTypeID_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="LoginName" Nullable="false" MaxLength="60" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="UserTypeID" Nullable="false" />
+    <Property Type="String" Name="UserTypeName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="ReferenceID" Nullable="true" />
+    <Property Type="String" Name="ReferenceName" Nullable="true" MaxLength="40" />
+    <Property Type="Int32" Name="SecurityLevelID" Nullable="false" />
+    <Property Type="String" Name="SecurityLevelName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="TitleOfCourtesy" Nullable="true" MaxLength="25" />
+    <Property Type="DateTime" Name="BirthDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="HireDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="PostalCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="HomePhone" Nullable="true" MaxLength="24" />
+    <Property Type="String" Name="Extension" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="Notes" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="ReportsTo" Nullable="true" />
+    <Property Type="String" Name="ReportsToName" Nullable="true" MaxLength="31" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="Active" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_Users_Login_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="Int32" Name="UserTypeID" Nullable="false" />
+    <Property Type="Int32" Name="SecurityLevelID" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="SecurityLevelName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="UserTypeName" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="ReferenceID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_UserTypes_All_Result">
+    <Property Type="Int32" Name="UserTypeID" Nullable="false" />
+    <Property Type="String" Name="UserTypeName" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="USP_UserTypes_Get_Result">
+    <Property Type="Int32" Name="UserTypeID" Nullable="false" />
+    <Property Type="String" Name="UserTypeName" Nullable="false" MaxLength="100" />
+  </ComplexType>
+</Schema>

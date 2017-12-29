@@ -1,0 +1,65 @@
+﻿@model SmartAdminMvc.Models.DbEntity.Pest
+<div id="content">
+    <!-- row -->
+    <div class="row">
+        <!-- col -->
+        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+            <h1 class="page-title txt-color-blueDark">
+                <!-- PAGE HEADER --><i class="fa-fw fa fa-home"></i> Farming <span>
+                    &gt;
+                    <a style="color:#3276b1;text-decoration:underline" href="@Url.Action("pests", "Farming")">Pests</a> &gt;Add Pests
+                </span>
+            </h1>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            @if (!string.IsNullOrEmpty(Convert.ToString(TempData["Message"])))
+            {
+                <div class="alert bg-success alert-block">
+                    <button class="close" data-dismiss="alert" aria-hidden="true">×</button><div class="validation-summary-errors">
+                        @TempData["Message"]
+                    </div>
+                </div>
+            }
+        </div>
+        <!-- end col -->
+    </div>
+    <div id="content1" class="col-lg-4 col-sm-4">
+
+
+        <h1>Add Pests</h1>
+
+        @using (Html.BeginForm("add_pests", "Farming", FormMethod.Post))
+        {
+            <div class="box-content">
+                <form role="form" action="add_pests" method="POST">
+                    <input type="hidden" name="_token" value="G0AbqnvLyD2UJo1OoEyfNj2ymFpHOnhNEzdd8Gcs">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Pest Name:</label>
+                        @Html.TextBoxFor(model => model.PestName, new { @class = "form-control", @placeholder = "pest name" })
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Description:</label>
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @placeholder = "description", @row = 5 })
+
+                    </div>
+
+                    <div class="col-md-3 col-sm-3">
+                        <button type="submit" class="btn btn-success btn-sm btn-block" name="btnText" value="Save">Save</button>
+                    </div>
+                    <div class="col-md-5 col-sm-5">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-sm btn-block" name="btnText" value="SaveAddMore">Save Add More..</button>
+                            @*<button class="btn btn-success btn-sm btn-block"><a style="color:#fff" href="@Url.Action("add_pests", "Farming")">Save Add More..</a></button>*@
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+
+                        <a class="btn btn-primary btn-block" style="color:white;" href="@Url.Action("pests", "Farming")">Cancel</a>
+
+                    </div>
+                </form>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,311 @@
+﻿@model SmartAdminMvc.Models.DbEntity.User
+<div id="content" class="container">
+    <div class="row" align="center">
+
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="well no-padding">
+                <form action="@Url.Action("Registration","UserAccount")" method="POST" id="smart-form-register" class="smart-form client-form">
+                    <header>
+                        User Registration
+
+                    </header>
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationBootstrap()
+                    <fieldset>
+                        @if (!string.IsNullOrEmpty(Convert.ToString(TempData["Message"])))
+                        {
+                            <div class="alert bg-success alert-block">
+                                <button class="close" data-dismiss="alert" aria-hidden="true">×</button><div class="validation-summary-errors">
+                                    @TempData["Message"]
+                                </div>
+                            </div>
+                        }
+                        <section>
+                            <label class="select">
+                             
+                                @Html.DropDownListFor(model => model.UserTypeID, ViewBag.UserTypeDDL as List<SelectListItem>)
+                                <i></i>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="select">
+                                <select name="refences">
+                                    <option value="0" selected="selected" disabled="disabled">Reference</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select> <i></i>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="select">
+                              
+                                @Html.DropDownListFor(model => model.SecurityLevelID, ViewBag.SecurityLevel as List<SelectListItem>)
+                                <i></i>
+                                <i></i>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-user"></i>
+                               
+                                @Html.TextBoxFor(model => model.LoginName, new { @autocomplete = "off", @placeholder = "Login Name" })
+                                <b class="tooltip tooltip-bottom-right">Enter Login Name</b>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-lock"></i>
+                               
+                                @Html.TextBoxFor(model => model.Password, new { @autocomplete = "off", @placeholder = "Password", @type = "password" })
+                                <b class="tooltip tooltip-bottom-right">Don't forget your password</b>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-lock"></i>
+                                @Html.TextBoxFor(model => model.Password, new { @autocomplete = "off", @placeholder = "Confirm Password", @type = "password" })
+                                
+                                <b class="tooltip tooltip-bottom-right">Don't forget your password</b>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-user"></i>
+                               
+                                @Html.TextBoxFor(model => model.LastName, new { @autocomplete = "off", @placeholder = "Last Name" })
+                                <b class="tooltip tooltip-bottom-right">Enter Last Name</b>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-user"></i>
+                                @Html.TextBoxFor(model => model.FirstName, new { @autocomplete = "off", @placeholder = "First Name" })
+                                
+                                <b class="tooltip tooltip-bottom-right">Enter First Name</b>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-trophy"></i>
+                                @Html.TextBoxFor(model => model.Title, new { @autocomplete = "off", @placeholder = "Title" })
+                               
+                                <b class="tooltip tooltip-bottom-right">Enter Title</b>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-trophy"></i>
+                                @Html.TextBoxFor(model => model.TitleOfCourtesy, new { @autocomplete = "off", @placeholder = "Title Of Courtesy" })
+                               
+                                <b class="tooltip tooltip-bottom-right">Enter Title</b>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-calendar"></i>
+                                @Html.TextBoxFor(model => model.BirthDate, new { @class = "datepicker", @data_dateformat = "dd/mm/yy", @placeholder = "Birthdate" })
+                                
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-calendar"></i>
+                                @Html.TextBoxFor(model => model.HireDate, new { @class = "datepicker", @data_dateformat = "dd/mm/yy", @placeholder = "Hire Date" })
+                                
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-home"></i>
+                                @Html.TextBoxFor(model => model.Address, new { @placeholder = "Address" })
+                               
+                                <b class="tooltip tooltip-bottom-right">Enter Address</b>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-star"></i>
+                                @Html.TextBoxFor(model => model.City, new { @placeholder = "City" })
+                                
+                                <b class="tooltip tooltip-bottom-right">Enter City</b>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-star"></i>
+                                @Html.TextBoxFor(model => model.State, new { @placeholder = "State" })
+                                
+                                <b class="tooltip tooltip-bottom-right">Enter State</b>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-info"></i>
+                                @Html.TextBoxFor(model => model.PostalCode, new { @placeholder = "Postal Code" })
+                                
+                                <b class="tooltip tooltip-bottom-right">Enter Postal Code</b>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-star"></i>
+                                @Html.TextBoxFor(model => model.Country, new { @placeholder = "Country" })
+                               
+                                <b class="tooltip tooltip-bottom-right">Enter Country</b>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-phone"></i>
+                                @Html.TextBoxFor(model => model.HomePhone, new { @placeholder = "Home Phone" })
+                               
+                                <b class="tooltip tooltip-bottom-right">Enter Home Phone</b>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-lock"></i>
+                               
+                                @Html.TextBoxFor(model => model.Extension, new { @placeholder = "Extension" })
+                                <b class="tooltip tooltip-bottom-right">Enter Extension</b>
+                            </label>
+                        </section>
+
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-user"></i>
+                                @Html.TextBoxFor(model => model.Notes, new { @placeholder = "Notes" })
+                              
+                                <b class="tooltip tooltip-bottom-right">Enter Notes</b>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="select">
+                                <select name="reportsto">
+                                    <option value="0" selected="selected" disabled="disabled">Reports To</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select> <i></i>
+                            </label>
+                        </section>
+
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-envelope"></i>
+                                @Html.TextBoxFor(model => model.Email, new { @placeholder = "Email address" })
+                               
+                                <b class="tooltip tooltip-bottom-right">Needed to enter the website</b>
+                            </label>
+                        </section>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="row">
+                            <section class="col col-3" align="left">
+                                Active
+                            </section>
+                            <section class="col col-3" align="left">
+                                <label class="cke_button__radio_icon">
+                                    @Html.RadioButtonFor(model => model.Active, true)&nbsp;1
+                                    &nbsp; &nbsp; &nbsp;
+                                    @Html.RadioButtonFor(model => model.Active, false)&nbsp;0
+                                </label>
+                            </section>
+                        </div>
+                    </fieldset>
+                    <footer>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">
+                                SAVE
+                            </button>
+                            <a class="btn btn-primary" style="color:white;" href="@Url.Action("RegistrationList", "UserAccount")">Cancel</a>
+                        </div>
+
+                    </footer>
+                    <div class="message">
+                        <i class="fa fa-check"></i>
+                        <p>
+                            Thank you for your registration!
+                        </p>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+@section pagespecific{
+    <script type="text/javascript">
+        // Model i agree button
+        $("#i-agree").click(function () {
+            var $this = $("#terms");
+            if ($this.checked) {
+                $('#myModal').modal('toggle');
+            } else {
+                $this.prop('checked', true);
+                $('#myModal').modal('toggle');
+            }
+        });
+
+        // Validation
+        $(function () {
+            // Validation
+            $("#smart-form-register").validate({
+                // Rules for form validation
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    emailConfirm: {
+                        required: true,
+                        email: true,
+                        equalTo: '#Email'
+                    },
+                    password: {
+                        required: true,
+                        minlength: 4,
+                        maxlength: 20
+                    },
+                    passwordConfirm: {
+                        required: true,
+                        minlength: 4,
+                        maxlength: 20,
+                        equalTo: '#Password'
+                    }
+                },
+
+                // Messages for form validation
+                messages: {
+                    email: {
+                        required: 'Please enter your email address',
+                        email: 'Please enter a VALID email address'
+                    },
+                    emailConfirm: {
+                        required: 'Please enter your email address one more time',
+                        email: 'Please enter a VALID email address',
+                        equalTo: 'Please enter the same email address as above'
+                    },
+                    password: {
+                        required: 'Please enter your password'
+                    },
+                    passwordConfirm: {
+                        required: 'Please enter your password one more time',
+                        equalTo: 'Please enter the same password as above'
+                    },
+                    terms: {
+                        required: 'You must agree with Terms and Conditions'
+                    }
+                },
+
+                // Do not change code below
+                errorPlacement: function (error, element) {
+                    error.insertAfter(element.parent());
+                }
+            });
+        });
+    </script>
+}

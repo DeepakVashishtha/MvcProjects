@@ -1,0 +1,139 @@
+﻿@model SmartAdminMvc.Models.DbEntity.USP_PTI_PrintTradeItem_Result
+<link href="~/Content/css/style.css" rel="stylesheet" />
+<link href="~/Content/css/print.css" rel="stylesheet" media="print" />
+<div id="content">
+    <!-- row -->
+    <div class="row">
+        <!-- col -->
+        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+            <h1 class="page-title txt-color-blueDark">
+                <!-- PAGE HEADER --><i class="fa-fw fa fa-home"></i> Farming <span>
+                    &gt;<span>PTI</span>
+                    &gt;Print Bar Code
+                </span>
+            </h1>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            @if (!string.IsNullOrEmpty(Convert.ToString(TempData["Message"])))
+            {
+                <div class="alert bg-success alert-block">
+                    <button class="close" data-dismiss="alert" aria-hidden="true">×</button><div class="validation-summary-errors">
+                        @TempData["Message"]
+                    </div>
+                </div>
+            }
+
+        </div>
+        <!-- end col -->
+    </div>
+    <div id="content1" class="col-lg-4 col-sm-4">
+
+        <h1>Print Trade</h1>
+        <div class="form-group">
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <button type="button" class="btn btn-success btn-sm btn-block" onclick="PrintDiv();">Print</button>
+            </div>
+        </div>
+        <br />
+        <br />
+        @{
+            decimal row = Math.Ceiling(Convert.ToDecimal(TempData["countNo"]) / 2);
+            var col = Convert.ToInt32(TempData["countNo"]);
+            int count = 0;
+        }
+        @using (Html.BeginForm("add_pests", "Farming", FormMethod.Post))
+        {
+
+            <table>
+                @for (int i = 1; i <= row; i++)
+                {
+                    <tr>
+                        @for (int j = 1; j <= 2; j++)
+                        {
+                            if (count == col)
+                            {
+                                <td></td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <div class="form-group">
+                                        <div class="bascode-wrapper" id="dvContents">
+
+                                            <div class="addres-wrap">
+                                                <div class="adress-left" style="float: left;padding:2px 3px;">
+                                                    <h3 style="font-size:11px;font-weight:400;font-family:'montserratregular';margin:0;line-height:normal;">@Model.CompanyName</h3>
+                                                    <p style="font-size:11px;font-family:'montserratregular';margin:0;line-height:normal;">@Model.Address, @Model.Region</p>
+                                                    <p style="font-size:11px;font-family:'montserratregular';margin:0;line-height:normal;">@Model.PostalCode</p>
+                                                </div>
+
+                                                <div class="adress-right" style="float: right;padding:2px 3px;text-align:right">
+                                                    <h3 style="font-size:11px;font-weight:400;font-family:'montserratregular';margin:0;line-height:normal;">Product of @Model.Country</h3>
+                                                    <h4 style="font-size:11px;font-weight:400;font-family:'montserratregular';margin:0;line-height:normal;">@Model.Brand</h4>
+                                                    <p style="font-size:11px;font-family:'montserratregular';margin:0;line-height:normal;">barnd</p>
+                                                </div>
+                                            </div>
+                                            <h2 style="font-size:16px;font-weight:300;font-family:'montserratmedium';margin:5px 0 0;line-height:normal;text-align:center;border-top:1px solid #9a9a9a;border-bottom:1px solid #000;padding:1px 0;letter-spacing:1px;float:left;width:100%;" class="bdr">@Model.ProductName</h2>
+                                            <h2 style="font-size:16px;font-weight:300;font-family:'montserratmedium';margin:0;line-height:normal;text-align:center;border-top:1px solid #9a9a9a;border-bottom:1px solid #000;padding:1px 0;letter-spacing:1px;float:left;width:100%;" class="bdr">@Model.Size</h2>
+                                            <div class="img-sec" style="text-align:center;">
+                                                <img src="~/Content/img/barcode_4.png" width="99.6%" height="55" style="margin:5px 0;" alt="barcode" />
+                                                <div class="tele" style="padding-left:0;text-align:center;">
+                                                    <h3 style="font-size:11px;font-weight:400;font-family:'montserratregular';margin:0;line-height:normal;">@Model.BarcodeEAN128Label</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </td>
+                                <td>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;</td>
+                            }
+                            count++;
+                        }
+                    </tr>
+                }
+
+            </table>
+        }
+    </div>
+</div>
+<script src="~/Scripts/libs/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+
+    function PrintDiv() {
+        var divContents = $("#dvContents").html();
+        var printWindow = window.open('', '', 'height=400,width=800');
+        printWindow.document.write('<html><head><title>DIV Contents</title>');
+        printWindow.document.write('</head><body >');
+        printWindow.document.write('<table>');
+        var count = 0;
+        for (var i = 0; i < @row; i++) {
+                 printWindow.document.write('<tr>');
+                 for (var j = 1; j <= 2; j++) {
+                     if (count == @col)
+                     {
+                         printWindow.document.write('<td></td>');
+                     }
+                     else {
+                         printWindow.document.write('<td>');
+                         printWindow.document.write('<div style="width:288px;height:185px;border:1px solid #000;background:#fff;">');
+                         printWindow.document.write(divContents);
+                         printWindow.document.write('</div>');
+                         printWindow.document.write('<br/>');
+                         printWindow.document.write('</td>');
+                         printWindow.document.write('<td>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;</td>');
+                     }
+                     count++;
+                 }
+                 printWindow.document.write('</tr>');
+             }
+             printWindow.document.write('</table>');
+             printWindow.document.write('</body></html>');
+             printWindow.document.close();
+             printWindow.print();
+         }
+
+</script>
+
+

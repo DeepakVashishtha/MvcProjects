@@ -1,0 +1,168 @@
+﻿@model SmartAdminMvc.Models.DbEntity.Supplier
+<div id="content">
+    <!-- row -->
+    <div class="row">
+        <!-- col -->
+        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+            <h1 class="page-title txt-color-blueDark">
+                <!-- PAGE HEADER --><i class="fa-fw fa fa-home"></i> Growers <span>
+                    &gt;
+                    <a style="color:#3276b1;text-decoration:underline" href="@Url.Action("Growers", "Farming")">Growers</a> &gt;Add Growers
+                </span>
+            </h1>
+        </div>
+ <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            @if (!string.IsNullOrEmpty(Convert.ToString(TempData["Message"])))
+            {
+                <div class="alert bg-success alert-block">
+                    <button class="close" data-dismiss="alert" aria-hidden="true">×</button><div class="validation-summary-errors">
+                        @TempData["Message"]
+                    </div>
+                </div>
+            }</div>
+        <!-- end col -->
+    </div>
+    <div id="content" class="col-xs-12 col-sm-12 col-md-12">
+
+        <h1>Add Growers</h1>
+
+        @using (Html.BeginForm("add_Growers", "Farming", FormMethod.Post))
+        {
+            <div class="box-content">
+               
+                   
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Company Name:</label>
+                        @Html.TextBoxFor(model => model.CompanyName, new { @class = "form-control", @placeholder = "company name" })
+                    
+                    </div>
+                    </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Contact Name:</label>
+                        @Html.TextBoxFor(model => model.ContactName, new { @class = "form-control", @placeholder = "contact name" })
+               
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Contact Title:</label>
+                        @Html.TextBoxFor(model => model.ContactTitle, new { @class = "form-control", @placeholder = "contact title" })
+                      
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Address:</label>
+                        @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @placeholder = "address" })
+                       
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">City:</label>
+                        @Html.TextBoxFor(model => model.City, new { @class = "form-control", @placeholder = "city" })
+                  
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">State:</label>
+                        @Html.TextBoxFor(model => model.Region, new { @class = "form-control", @placeholder = "state" })
+                      
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Postal Code:</label>
+                        @Html.TextBoxFor(model => model.PostalCode, new { @class = "form-control", @placeholder = "postal code" })
+                   
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Country:</label>
+                        @Html.TextBoxFor(model => model.Country, new { @class = "form-control", @placeholder = "country" })
+                     
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Phone:</label>
+                        @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", @placeholder = "phone" })
+                    
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Fax:</label>
+                        @Html.TextBoxFor(model => model.Fax, new { @class = "form-control", @placeholder = "fax" })
+                    
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email:</label>
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "email" })
+                      
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Company UCC prefix:</label>
+                        @Html.TextBoxFor(model => model.CompanyUCCprefix, new { @class = "form-control", @placeholder = "company ucc prefix" })
+                      
+                    </div></div>
+                   
+                        <div class="col-md-4 col-sm-4">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success btn-sm btn-block" name="btnText" value="Save">Save</button>
+                            </div>
+                        </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success btn-sm btn-block" name="btnText" value="SaveAddMore">Save Add More</button>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    <a class="btn btn-primary btn-sm btn-block" href="@Url.Action("Growers", "Farming")">Cancel</a>
+                                </div>
+                            </div>
+               
+
+                </div>
+        }
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,197 @@
+﻿@model SmartAdminMvc.Models.DbEntity.Pesticide
+<div id="content">
+    <!-- row -->
+    <div class="row">
+        <!-- col -->
+        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+            <h1 class="page-title txt-color-blueDark">
+                <!-- PAGE HEADER --><i class="fa-fw fa fa-home"></i> Farming <span>
+                    &gt;
+                    <a style="color:#3276b1;text-decoration:underline" href="@Url.Action("Pesticides", "Farming")">Pesticides</a> &gt;Add Pesticides
+                </span>
+            </h1>
+        </div>
+ <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            @if (!string.IsNullOrEmpty(Convert.ToString(TempData["Message"])))
+            {
+                <div class="alert bg-success alert-block">
+                    <button class="close" data-dismiss="alert" aria-hidden="true">×</button><div class="validation-summary-errors">
+                        @TempData["Message"]
+                    </div>
+                </div>
+            }</div>
+        <!-- end col -->
+    </div>
+    <div id="content" class="col-xs-12 col-sm-12 col-md-12">
+
+
+        <h1>Add Pesticides</h1>
+
+        @using (Html.BeginForm("add_pesticides", "Farming", FormMethod.Post))
+        {
+            <div class="box-content">
+
+                <input type="hidden" name="_token" value="G0AbqnvLyD2UJo1OoEyfNj2ymFpHOnhNEzdd8Gcs">
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.PesticideName, new { @class = "form-control", @placeholder = "Pesticide Name" })
+                       
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.RatesListedPer, new { @class = "form-control", @placeholder = "Rate Listed Per" })
+                       
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.ActiveIndegrident, new { @class = "form-control", @placeholder = "Active Indegrident" })
+                       
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.RestrictedEntryInterval, new { @class = "form-control", @placeholder = "Pre-Hervest Interval" })
+                       
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.PesticideLabelSignalWord, new { @class = "form-control", @placeholder = "Pesticide Label Signal Word" })
+                        
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.WPSOralNotification, new { @class = "form-control", @placeholder = "WPS Oral Notification" })
+                       
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.Toxicity, new { @class = "form-control", @placeholder = "Toxicity" })
+                       
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.EPARegistrationNumber, new { @class = "form-control", @placeholder = "EPA Registration Number" })
+                       
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.RestrictedEntryInterval, new { @class = "form-control", @placeholder = "Resticated Entry Interval" })
+                       
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.ProductRate, new { @class = "form-control", @placeholder = "Product Rate" })
+                        
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        @Html.DropDownListFor(model => model.ProductMeasurementType, ViewBag.ProductMeasurementType as List<SelectListItem>,new { @class = "form-control" })
+                       
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.TotalProductConsumed, new { @class = "form-control", @placeholder = "Total Product Consumed" })
+                        
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.ApplicatorName, new { @class = "form-control", @placeholder = "Applicator Name" })
+                       
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.CertificationNumber, new { @class = "form-control", @placeholder = "Certifiaction Number" })
+                        
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.RatesListedPer, new { @class = "form-control", @placeholder = "Rate Listed Per" })
+                        
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.GPA, new { @class = "form-control", @placeholder = "GPA" })
+                       
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.Concentration, new { @class = "form-control", @placeholder = "Concentration" })
+                       
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.SprayRig, new { @class = "form-control", @placeholder = "Spray Rig" })
+                        
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.NozzelSetup, new { @class = "form-control", @placeholder = "Nozzel Setup" })
+                       
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.SprayingInstructions, new { @class = "form-control", @placeholder = "Spraying Instructions" })
+                      
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 btarea">
+                    <div class="col-xs-12 col-sm-4 col-sm-4">
+                        <button type="submit" class="btn btn-success btn-sm btn-block">Save</button>
+                    </div>
+                    <div class="col-xs-12 col-md-4 col-sm-4">
+                        @*<button type="submit" name="addmore" class="btn btn-info btn-sm btn-block">Save &amp; Add More..</button>*@
+                        <button class="btn btn-success btn-sm btn-block"><a style="color:#fff" href="@Url.Action("add_pesticides", "Farming")">Save &amp; Add More..</a></button>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-sm-4">
+                        <a class="btn btn-primary btn-block" style="color:white;" href="@Url.Action("pesticides", "Farming")">Cancel</a>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+        }
+    </div>
+</div>
